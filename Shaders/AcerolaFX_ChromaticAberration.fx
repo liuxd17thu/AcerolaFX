@@ -2,43 +2,43 @@
 #include "Includes/AcerolaFX_TempTex1.fxh"
 
 uniform bool _DebugMask <
-    ui_label = "Debug Mask";
-    ui_tooltip = "View the chromatic aberration intensity mask.";
+    ui_label = "调试遮罩";
+    ui_tooltip = "显示色差强度遮罩。";
 > = false;
 
 uniform float2 _FocalOffset <
     ui_min = -1.0f; ui_max = 1.0f;
-    ui_label = "Focal Point Offset";
+    ui_label = "焦点位置";
     ui_type = "drag";
-    ui_tooltip = "Positional offset of the focal point from the center of the screen.";
+    ui_tooltip = "焦点坐标相对于屏幕中心的坐标偏移。";
 > = 0.0f;
 
 uniform float2 _Radius <
     ui_min = 0f; ui_max = 5.0f;
-    ui_label = "Focus Radius";
+    ui_label = "对焦半径";
     ui_type = "drag";
-    ui_tooltip = "Adjust radius of focus from center of image.";
+    ui_tooltip = "调节屏幕中央的对焦半径。";
 > = 1.0f;
 
 uniform float _Hardness <
     ui_min = 0f; ui_max = 10.0f;
-    ui_label = "Hardness";
+    ui_label = "硬度";
     ui_type = "drag";
-    ui_tooltip = "Adjust how smooth the intensity change is from the center of the screen.";
+    ui_tooltip = "调节强度从屏幕中央向外变化的平滑度。";
 > = 1.0f;
 
 uniform float _Intensity <
     ui_min = 0f; ui_max = 10.0f;
-    ui_label = "Intensity";
+    ui_label = "强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust how intense the color offset is.";
+    ui_tooltip = "调节色彩偏移的强度。";
 > = 1.0f;
 
 uniform float3 _ColorOffsets <
     ui_min = -1.0f; ui_max = 1.0f;
-    ui_label = "Color Offsets";
+    ui_label = "色彩偏移";
     ui_type = "drag";
-    ui_tooltip = "Adjust how much each color channel should be offset.";
+    ui_tooltip = "调节每个颜色通道偏移的程度。";
 > = 0.0f;
 
 sampler2D ChromaticAberration { Texture = AFXTemp1::AFX_RenderTex1; MagFilter = POINT; MinFilter = POINT; MipFilter = POINT; };
@@ -70,7 +70,7 @@ float4 PS_ChromaticAberration(float4 position : SV_POSITION, float2 uv : TEXCOOR
     return col;
 }
 
-technique AFX_ChromaticAberration < ui_label = "Chromatic Aberration"; ui_tooltip = "Simulate chromatic aberration by shifting color channel values around."; > {
+technique AFX_ChromaticAberration < ui_label = "AcerolaFX::色差[AFX_ChromaticAberration]"; ui_tooltip = "移动色彩通道，模拟色差效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

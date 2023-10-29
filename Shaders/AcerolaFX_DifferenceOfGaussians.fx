@@ -6,343 +6,343 @@
 
 uniform bool _UseFlow <
     ui_category_closed = true;
-    ui_category = "Edge Tangent Flow Settings";
-    ui_label = "Use Flow";
-    ui_tooltip = "Whether or not to use the flow difference of gaussians or not.";
+    ui_category = "边缘切线流场设置";
+    ui_label = "使用流场";
+    ui_tooltip = "是否使用流场高斯差。";
 > = true;
 
 uniform float _SigmaC <
     ui_category_closed = true;
-    ui_category = "Edge Tangent Flow Settings";
+    ui_category = "边缘切线流场设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Tangent Flow Deviation";
+    ui_label = "切线流场标准差";
     ui_type = "slider";
-    ui_tooltip = "Adjust standard deviation for blurring of the structure tensor.";
+    ui_tooltip = "调节结构张量模糊的标准差。";
 > = 2.0f;
 
 uniform float _SigmaM <
     ui_category_closed = true;
-    ui_category = "Edge Tangent Flow Settings";
+    ui_category = "边缘切线流场设置";
     ui_min = 0.0f; ui_max = 20.0f;
-    ui_label = "Line Integral Deviation";
+    ui_label = "线积分标准差";
     ui_type = "slider";
-    ui_tooltip = "Adjust standard deviation for smoothing of the flow difference of gaussians.";
+    ui_tooltip = "调节用于流场高斯差平滑的标准差。";
 > = 2.0f;
 
 uniform float2 _LineIntegralStepSize <
     ui_category_closed = true;
-    ui_category = "Edge Tangent Flow Settings";
-    ui_label = "Line Convolution Step Sizes";
+    ui_category = "边缘切线流场设置";
+    ui_label = "线卷积步进";
     ui_type = "drag";
-    ui_tooltip = "Increase distance between smoothing samples for more painterly visuals.";
+    ui_tooltip = "增加模糊样本间的距离，增强绘画质感。";
 > = 1.0f;
 
 uniform bool _CalcDiffBeforeConvolving <
     ui_category_closed = true;
-    ui_category = "Edge Tangent Flow Settings";
-    ui_label = "Calculate Difference Before Smoothing";
+    ui_category = "边缘切线流场设置";
+    ui_label = "平滑前计算差异";
 > = true;
 
 uniform float _SigmaE <
     ui_category_closed = true;
-    ui_category = "Difference Of Gaussians Settings";
+    ui_category = "高斯差设置";
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Difference Of Gaussians Deviation";
+    ui_label = "高斯差标准差";
     ui_type = "slider";
-    ui_tooltip = "Adjust the deviation of the color buffer gaussian blurring.";
+    ui_tooltip = "调节颜色缓冲高斯模糊的标准差值。";
 > = 2.0f;
 
 uniform float _K <
     ui_category_closed = true;
-    ui_category = "Difference Of Gaussians Settings";
+    ui_category = "高斯差设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Deviation Scale";
+    ui_label = "标准差缩放";
     ui_type = "drag";
-    ui_tooltip = "Adjust scale between gaussian blur passes for the color buffer.";
+    ui_tooltip = "调节每一道高斯模糊之间的标准差缩放。";
 > = 1.6f;
 
 uniform float _P <
     ui_category_closed = true;
-    ui_category = "Difference Of Gaussians Settings";
+    ui_category = "高斯差设置";
     ui_min = 0.0f; ui_max = 100.0f;
-    ui_label = "Sharpness";
+    ui_label = "锐度";
     ui_type = "slider";
-    ui_tooltip = "Adjust sharpness of the two gaussian blurs to bring out edge lines.";
+    ui_tooltip = "调节两个高斯模糊的锐度，以获得边缘线。";
 > = 1.0f;
 
 uniform bool _SmoothEdges <
     ui_category_closed = true;
-    ui_category = "Anti Aliasing Settings";
-    ui_label = "Smooth Edges";
-    ui_tooltip = "Whether or not to apply anti aliasing to the edges of the image.";
+    ui_category = "抗锯齿设置";
+    ui_label = "平滑边缘";
+    ui_tooltip = "是否对图像中的边缘应用抗锯齿。";
 > = true;
 
 uniform float _SigmaA <
     ui_category_closed = true;
-    ui_category = "Anti Aliasing Settings";
+    ui_category = "抗锯齿设置";
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Edge Smooth Deviation";
+    ui_label = "边缘平滑标准差";
     ui_type = "slider";
-    ui_tooltip = "Adjust standard deviation for gaussian blurring of edge lines.";
+    ui_tooltip = "调节边缘线高斯模糊的标准差。";
 > = 2.0f;
 
 uniform float2 _AntiAliasStepSize <
     ui_category_closed = true;
-    ui_category = "Anti Aliasing Settings";
-    ui_label = "Edge Smoothing Step Sizes";
+    ui_category = "抗锯齿设置";
+    ui_label = "边缘平滑步进";
     ui_type = "drag";
-    ui_tooltip = "Increase distance between smoothing samples for more painterly visuals.";
+    ui_tooltip = "增加模糊样本间的距离，增强绘画质感。";
 > = 1.0f;
 
 
 uniform int _Thresholding <
     ui_category_closed = true;
-    ui_category = "Threshold Settings";
+    ui_category = "阈值设置";
     ui_type = "combo";
-    ui_label = "Threshold Mode";
-    ui_items = "No Threshold\0"
-               "Tanh\0"
-               "Quantization\0"
-               "Soft Quantization\0";
+    ui_label = "阈值模式";
+    ui_items = "无阈值\0"
+               "双曲正切Tanh\0"
+               "量化\0"
+               "软量化\0";
 > = 0;
 
 uniform int _Thresholds <
     ui_category_closed = true;
-    ui_category = "Threshold Settings";
+    ui_category = "阈值设置";
     ui_min = 1; ui_max = 16;
-    ui_label = "Quantizer Step";
+    ui_label = "量化阶数";
     ui_type = "slider";
-    ui_tooltip = "Adjust number of allowed difference values.";
+    ui_tooltip = "调节允许的不同数值数量。";
 > = 1;
 
 uniform float _Threshold <
     ui_category_closed = true;
-    ui_category = "Threshold Settings";
+    ui_category = "阈值设置";
     ui_min = 0.0f; ui_max = 100.0f;
-    ui_label = "White Point";
+    ui_label = "白点";
     ui_type = "slider";
-    ui_tooltip = "Adjust value at which difference is clamped to white.";
+    ui_tooltip = "调节差异被限制为白色的数值位置。";
 > = 20.0f;
 
 uniform float _Phi <
     ui_category_closed = true;
-    ui_category = "Threshold Settings";
+    ui_category = "阈值设置";
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Soft Threshold";
+    ui_label = "软阈值";
     ui_type = "slider";
-    ui_tooltip = "Adjust curve of hyperbolic tangent.";
+    ui_tooltip = "调节双曲正切曲线。";
 > = 1.0f;
 
 uniform bool _EnableHatching <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
-    ui_label = "Use Hatching";
-    ui_tooltip = "Whether or not to render cross hatching.";
+    ui_category = "排线设置";
+    ui_label = "使用排线";
+    ui_tooltip = "是否启用排线。";
 > = false;
 
 uniform int _HatchTexture <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_type = "combo";
-    ui_label = "Hatch Texture";
-    ui_items = "No Texture\0"
-               "Texture 1\0"
-               "Texture 2\0"
-               "Texture 3\0"
-               "Texture 4\0"
-               "Custom Texture\0";
+    ui_label = "排线纹理";
+    ui_items = "无纹理\0"
+               "纹理1\0"
+               "纹理2\0"
+               "纹理3\0"
+               "纹理4\0"
+               "自定义纹理\0";
 > = 1;
 
 uniform bool _ColoredPencilEnabled <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
-    ui_label = "Colored Pencil";
-    ui_tooltip = "Color the hatch lines.";
+    ui_category = "排线设置";
+    ui_label = "彩色铅笔";
+    ui_tooltip = "为排线着色。";
 > = false;
 
 uniform float _BrightnessOffset <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Brightness";
+    ui_label = "亮度";
     ui_type = "drag";
-    ui_tooltip = "Adjusts brightness of color pencil lines.";
+    ui_tooltip = "调节彩色铅笔线的亮度。";
 > = 0.5f;
 
 uniform float _Saturation <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Saturation";
+    ui_label = "饱和度";
     ui_type = "drag";
-    ui_tooltip = "Adjusts saturation of color pencil lines to bring out more color.";
+    ui_tooltip = "调节彩色铅笔线的饱和度，产生更多颜色。";
 > = 1.0f;
 
 uniform float _HatchRes1 <
     ui_spacing = 5.0f;
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "First Hatch Resolution";
+    ui_label = "排线1 分辨率";
     ui_type = "drag";
-    ui_tooltip = "Adjust the size of the first hatch layer texture resolution.";
+    ui_tooltip = "调节第一层排线纹理的分辨率尺寸。";
 > = 1.0f;
 
 uniform float _HatchRotation1 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = -180.0f; ui_max = 180.0f;
-    ui_label = "First Hatch Rotation";
+    ui_label = "排线1 旋转";
     ui_type = "slider";
-    ui_tooltip = "Adjust the rotation of the first hatch layer texture resolution.";
+    ui_tooltip = "调节第一层排线纹理的方向。";
 > = 1.0f;
 
 uniform bool _UseLayer2 <
     ui_spacing = 5.0f;
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
-    ui_label = "Layer 2";
+    ui_category = "排线设置";
+    ui_label = "图层2";
 > = false;
 
 uniform float _Threshold2 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 100.0f;
-    ui_label = "Second White Point";
+    ui_label = "排线2 白点";
     ui_type = "slider";
-    ui_tooltip = "Adjust the white point of the second hatching layer.";
+    ui_tooltip = "调节第二层排线的白点值。";
 > = 1.0f;
 
 uniform float _HatchRes2 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Second Hatch Resolution";
+    ui_label = "排线2 分辨率";
     ui_type = "drag";
-    ui_tooltip = "Adjust the size of the second hatch layer texture resolution.";
+    ui_tooltip = "调节第二层排线纹理的分辨率尺寸。";
 > = 1.0f;
 
 uniform float _HatchRotation2 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = -180.0f; ui_max = 180.0f;
-    ui_label = "Second Hatch Rotation";
+    ui_label = "排线2 旋转";
     ui_type = "slider";
-    ui_tooltip = "Adjust the rotation of the second hatch layer texture resolution.";
+    ui_tooltip = "调节第二层排线纹理的方向。";
 > = 1.0f;
 
 uniform bool _UseLayer3 <
     ui_spacing = 5.0f;
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
-    ui_label = "Layer 3";
+    ui_category = "排线设置";
+    ui_label = "图层3";
 > = false;
 
 uniform float _Threshold3 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 100.0f;
-    ui_label = "Third White Point";
+    ui_label = "排线3 白点";
     ui_type = "slider";
-    ui_tooltip = "Adjust the white point of the third hatching layer.";
+    ui_tooltip = "调节第三层排线的白点值。";
 > = 1.0f;
 
 uniform float _HatchRes3 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Third Hatch Resolution";
+    ui_label = "排线3 分辨率";
     ui_type = "drag";
-    ui_tooltip = "Adjust the size of the third hatch layer texture resolution.";
+    ui_tooltip = "调节第三层排线纹理的尺寸。";
 > = 1.0f;
 
 uniform float _HatchRotation3 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = -180.0f; ui_max = 180.0f;
-    ui_label = "Third Hatch Rotation";
+    ui_label = "排线3 旋转";
     ui_type = "slider";
-    ui_tooltip = "Adjust the rotation of the third hatch layer texture resolution.";
+    ui_tooltip = "调节第三层排线纹理的方向。";
 > = 1.0f;
 
 uniform bool _UseLayer4 <
     ui_spacing = 5.0f;
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
-    ui_label = "Layer 4";
+    ui_category = "排线设置";
+    ui_label = "图层4";
 > = false;
 
 uniform float _Threshold4 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 100.0f;
-    ui_label = "Fourth White Point";
+    ui_label = "排线4 白点";
     ui_type = "slider";
-    ui_tooltip = "Adjust the white point of the fourth hatching layer.";
+    ui_tooltip = "调节第四层排线的白点值。";
 > = 1.0f;
 
 uniform float _HatchRes4 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Fourth Hatch Resolution";
+    ui_label = "排线4 分辨率";
     ui_type = "drag";
-    ui_tooltip = "Adjust the size of the fourth hatch layer texture resolution.";
+    ui_tooltip = "调节第四层排线纹理的尺寸。";
 > = 1.0f;
 
 uniform float _HatchRotation4 <
     ui_category_closed = true;
-    ui_category = "Cross Hatch Settings";
+    ui_category = "排线设置";
     ui_min = -180.0f; ui_max = 180.0f;
-    ui_label = "Fourth Hatch Rotation";
+    ui_label = "排线4 旋转";
     ui_type = "slider";
-    ui_tooltip = "Adjust the rotation of the fourth hatch layer texture resolution.";
+    ui_tooltip = "调节第四层排线纹理的方向。";
 > = 1.0f;
 
 uniform float _TermStrength <
     ui_category_closed = true;
-    ui_category = "Blend Settings";
+    ui_category = "混合设置";
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Term Strength";
+    ui_label = "强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust scale of difference of gaussians output.";
+    ui_tooltip = "调节高斯差输出的缩放。";
 > = 1;
 
 uniform int _BlendMode <
     ui_category_closed = true;
-    ui_category = "Blend Settings";
+    ui_category = "混合设置";
     ui_type = "combo";
-    ui_label = "Blend Mode";
-    ui_items = "No Blend\0"
-               "Interpolate\0"
-               "Two Point Interpolate\0";
+    ui_label = "混合模式";
+    ui_items = "不混合\0"
+               "插值\0"
+               "两点插值\0";
 > = 0;
 
 uniform float3 _MinColor <
     ui_category_closed = true;
-    ui_category = "Blend Settings";
+    ui_category = "混合设置";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Min Color";
+    ui_label = "最小颜色";
     ui_type = "color";
-    ui_tooltip = "Set minimum color.";
+    ui_tooltip = "设置最小颜色。";
 > = 0.0f;
 
 uniform float3 _MaxColor <
     ui_category_closed = true;
-    ui_category = "Blend Settings";
+    ui_category = "混合设置";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Max Color";
+    ui_label = "最大颜色";
     ui_type = "color";
-    ui_tooltip = "Set maximum color.";
+    ui_tooltip = "设置最大颜色。";
 > = 1.0f;
 
 uniform float _BlendStrength <
     ui_category_closed = true;
-    ui_category = "Blend Settings";
+    ui_category = "混合设置";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Blend Strength";
+    ui_label = "混合强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust strength of color blending.";
+    ui_tooltip = "调节颜色混合强度。";
 > = 1;
 
 #ifndef AFX_HATCH_TEXTURE_PATH
@@ -773,7 +773,7 @@ float4 PS_ColorBlend(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_T
     return saturate(lerp(col, output, _BlendStrength));
 }
 
-technique AFX_DifferenceOfGaussians < ui_label = "Difference Of Gaussians"; > {
+technique AFX_DifferenceOfGaussians < ui_label = "AcerolaFX::高斯差[AFX_DifferenceOfGaussians]"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

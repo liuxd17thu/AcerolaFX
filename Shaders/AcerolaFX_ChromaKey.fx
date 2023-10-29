@@ -15,50 +15,50 @@
 
 uniform float3 _KeyColor <
     ui_type = "color";
-    ui_label = "Key Color";
+    ui_label = "键控颜色";
 > = 0.0f;
 
 uniform int _Behavior <
     ui_type = "combo";
-    ui_label = "Key Behavior";
-    ui_tooltip = "What to do with the key.";
-    ui_items = "Solid Color\0"
-               "Gradient\0"
-               "Texture\0";
+    ui_label = "键控行为";
+    ui_tooltip = "要对色键做什么？";
+    ui_items = "实色\0"
+               "渐变\0"
+               "纹理\0";
 > = 0;
 
 uniform float3 _ReplaceColor <
     ui_type = "color";
-    ui_label = "Replace Color";
+    ui_label = "替换颜色";
     ui_spacing = 5;
 > = 0.0f;
 
 uniform float3 _Gradient1 <
-    ui_category = "Gradient Settings";
+    ui_category = "渐变设置";
     ui_category_closed = true;
     ui_type = "color";
-    ui_label = "Gradient Color 1";
+    ui_label = "渐变颜色1";
 > = 0.0f;
 
 uniform float3 _Gradient2 <
-    ui_category = "Gradient Settings";
+    ui_category = "渐变设置";
     ui_category_closed = true;
     ui_type = "color";
-    ui_label = "Gradient Color 2";
+    ui_label = "渐变颜色2";
 > = 0.0f;
 
 uniform float2 _TextureTile <
-    ui_category = "Texture Settings";
+    ui_category = "纹理设置";
     ui_category_closed = true;
     ui_type = "drag";
-    ui_label = "Tile Rate";
+    ui_label = "平铺率";
 > = 1.0f;
 
 uniform float2 _TextureOffset <
-    ui_category = "Texture Settings";
+    ui_category = "纹理设置";
     ui_category_closed = true;
     ui_type = "drag";
-    ui_label = "Offset";
+    ui_label = "偏移";
 > = 0.0f;
 
 texture2D AFX_ChromaKeyTex < source = AFX_CHROMA_KEY_TEXTURE; > { Width = AFX_CHROMA_TEX_WIDTH; Height = AFX_CHROMA_TEX_HEIGHT; };
@@ -88,7 +88,7 @@ float4 PS_ChromaKey(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TA
     return col;
 }
 
-technique AFX_ChromaKey < ui_label = "Chroma Key"; ui_tooltip = "Replace a color with something else."; > {
+technique AFX_ChromaKey < ui_label = "AcerolaFX::色键抠像[AFX_Chromakey]"; ui_tooltip = "将指定颜色替换为其他内容。\n译注：这个不是绿幕，而是用来处理已经绿幕抠过的图像。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

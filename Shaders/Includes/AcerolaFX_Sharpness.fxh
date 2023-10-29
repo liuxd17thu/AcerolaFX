@@ -69,34 +69,34 @@ uniform int AFX_SHARPNESS_FILTER < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_type = "combo"; \
-    ui_label = "Filter Type"; \
-    ui_items = "Basic\0" \
-               "Adaptive\0"; \
-    ui_tooltip = "Which sharpness filter to use."; \
+    ui_label = "过滤类型"; \
+    ui_items = "基础\0" \
+               "自适应\0"; \
+    ui_tooltip = "使用何种锐化滤波器。"; \
 > = 0; \
 uniform float AFX_SHARPNESS_STRENGTH < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = -1.0f; ui_max = 1.0f; \
-    ui_label = "Sharpness"; \
+    ui_label = "锐度"; \
     ui_type = "drag"; \
-    ui_tooltip = "Adjust sharpening strength."; \
+    ui_tooltip = "调节锐化强度。"; \
 > = 0.0f; \
 uniform float AFX_SHARPNESS_FALLOFF < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0.0f; ui_max = 0.01f; \
-    ui_label = "Sharpness Falloff"; \
+    ui_label = "锐度淡出"; \
     ui_type = "slider"; \
-    ui_tooltip = "Adjust rate at which sharpness falls off at a distance."; \
+    ui_tooltip = "调节锐度随深度减弱的比率。"; \
 > = 0.0f; \
 uniform float AFX_SHARPNESS_OFFSET < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0.0f; ui_max = 1000.0f; \
-    ui_label = "Falloff Offset"; \
+    ui_label = "淡出偏置"; \
     ui_type = "slider"; \
-    ui_tooltip = "Offset distance at which sharpness starts to falloff."; \
+    ui_tooltip = "锐度开始淡出的深度偏置。"; \
 > = 0.0f; \
 float4 AFX_SHADER_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET { \
     float4 col = saturate(tex2D(Common::AcerolaBuffer, uv)); \
@@ -113,7 +113,7 @@ float4 AFX_SHADER_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV
     } \
     return float4(output, col.a); \
 } \
-technique AFX_TECHNIQUE_NAME <ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "(LDR) Increases the contrast between edges to create the illusion of high detail."; > { \
+technique AFX_TECHNIQUE_NAME <ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "(LDR) 增加边缘之间的对比度，提供细节更精致的错觉。"; > { \
     pass Sharpen { \
         RenderTarget = AFXTemp1::AFX_RenderTex1; \
         VertexShader = PostProcessVS; \

@@ -5,200 +5,200 @@
 #include "Includes/AcerolaFX_TempTex4.fxh"
 
 uniform bool _ConsiderSkyInfinity <
-    ui_label = "Consider Sky Infinity";
-    ui_tooltip = "Enable to consider the skybox infinitely far away. Disable to focus on sky.";
+    ui_label = "视天空为无穷远";
+    ui_tooltip = "将天空盒视作位于无穷远处。禁用以聚焦天空。";
 > = true;
 
 uniform float _FocalPlaneDistance <
     ui_min = 0.0f; ui_max = 1000.0f;
-    ui_label = "Focal Plane";
+    ui_label = "聚焦平面";
     ui_type = "slider";
-    ui_tooltip = "Adjust distance at which detail is sharp.";
+    ui_tooltip = "调节细节清晰的距离。";
 > = 40.0f;
 
 uniform float _FocusRange <
     ui_min = 0.0f; ui_max = 1000.0f;
-    ui_label = "Focus Range";
+    ui_label = "聚焦范围";
     ui_type = "slider";
-    ui_tooltip = "Adjust range at which detail is sharp around the focal plane.";
+    ui_tooltip = "调节聚焦平面附近细节清晰的范围。";
 > = 20.0f;
 
 uniform int _InverseTonemapper <
-    ui_category = "Tonemap Settings";
+    ui_category = "色调映射设置";
     ui_category_closed = true;
     ui_type = "combo";
-    ui_label = "Inverse Tonemap";
-    ui_tooltip = "Convert ldr to sdr.";
-    ui_items = "No Tonemapper\0"
-               "Extended Reinhard\0"
+    ui_label = "反向色调映射算子";
+    ui_tooltip = "将LDR转换为SDR。";
+    ui_items = "无色调映射\0"
+               "扩展的Reinhard\0"
                "Lottes\0";
 > = 0;
 
 uniform bool _ReverseTonemap <
-    ui_category = "Tonemap Settings";
+    ui_category = "色调映射设置";
     ui_category_closed = true;
-    ui_label = "Reverse Tonemap";
-    ui_tooltip = "Tonemap hdr bokeh blur back to sdr using the above tonemapping function. Disable if you want to tonemap in the Tonemap effect instead.";
+    ui_label = "逆色调映射";
+    ui_tooltip = "使用上面的色调映射函数将HDR散景模糊映射至SDR。如果准备改用色调映射着色器，请禁用这个。";
 > = true;
 
 uniform float _Exposure <
-    ui_category = "Tonemap Settings";
+    ui_category = "色调映射设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Exposure";
+    ui_label = "曝光";
     ui_type = "drag";
-    ui_tooltip = "Adjust exposure of the far and near fields.";
+    ui_tooltip = "调节远景和近景曝光。";
 > = 1.0f;
 
 uniform bool _UseKaris <
-    ui_category = "Tonemap Settings";
+    ui_category = "色调映射设置";
     ui_category_closed = true;
-    ui_label = "Inverse Karis Average";
-    ui_tooltip = "Give more weight to brighter pixels for more realistic highlights";
+    ui_label = "反向Karis均值";
+    ui_tooltip = "较亮像素具有更高权重，从而获得更真实的高光。";
 > = true;
 
 
 uniform float _LuminanceMultiplier <
-    ui_category = "Tonemap Settings";
+    ui_category = "色调映射设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Luminance Multiplier";
+    ui_label = "亮度乘数";
     ui_type = "slider";
-    ui_tooltip = "Adjust luminance multiplier for inverse karis weighting.";
+    ui_tooltip = "调节反向Karis加权的亮度乘数。";
 > = 1.0f;
 
 uniform float _LuminanceBias <
-    ui_category = "Tonemap Settings";
+    ui_category = "色调映射设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Luminance Bias";
+    ui_label = "亮度偏置";
     ui_type = "slider";
-    ui_tooltip = "Adjust luminance bias for inverse karis weight.";
+    ui_tooltip = "调节反向Karis加权的亮度偏置。";
 > = 0.0f;
 
 uniform int _KernelShape <
-    ui_category = "Bokeh Settings";
+    ui_category = "散景设置";
     ui_category_closed = true;
     ui_type = "combo";
-    ui_label = "Aperture Shape";
-    ui_tooltip = "shape of the kernel.";
-    ui_items = "Circle\0"
-               "Square\0"
-               "Diamond\0"
-               "Hexagon\0"
-               "Octagon\0"
-               "Star\0";
+    ui_label = "光圈形状";
+    ui_tooltip = "核形状";
+    ui_items = "圆形\0"
+               "方形\0"
+               "钻石\0"
+               "六边形\0"
+               "八边形\0"
+               "星形\0";
 > = 0;
 
 uniform int _KernelRotation <
-    ui_category = "Bokeh Settings";
+    ui_category = "散景设置";
     ui_category_closed = true;
     ui_min = -180; ui_max = 180;
-    ui_label = "Rotation";
+    ui_label = "旋转";
     ui_type = "slider";
-    ui_tooltip = "Rotation of bokeh shape.";
+    ui_tooltip = "散景形状旋转。";
 > = 0;
 
 uniform float _Strength <
-    ui_category = "Bokeh Settings";
+    ui_category = "散景设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 3.0f;
-    ui_label = "Sample Distance";
+    ui_label = "采样距离";
     ui_type = "drag";
-    ui_tooltip = "Adjust distance between kernel samples as a multiplier on the kernel size.";
+    ui_tooltip = "调节散景核采样点的距离，作为散景尺寸的乘数。";
 > = 1.0f;
 
 uniform bool _NearPointFilter <
-    ui_category = "Near Field Settings";
+    ui_category = "近景设置";
     ui_category_closed = true;
-    ui_label = "Point Filter";
-    ui_tooltip = "Point filter when sampling while blurring.";
+    ui_label = "点过滤";
+    ui_tooltip = "模糊采样时的点过滤。";
 > = false;
 
 uniform int _NearKernelSize <
-    ui_category = "Near Field Settings";
+    ui_category = "近景设置";
     ui_category_closed = true;
     ui_min = 1; ui_max = 13;
-    ui_label = "Near Kernel Size";
+    ui_label = "散景核尺寸";
     ui_type = "slider";
-    ui_tooltip = "Size of near bokeh kernel";
+    ui_tooltip = "近景散景核尺寸。";
 > = 6;
 
 uniform int _NearFillWidth <
-    ui_category = "Near Field Settings";
+    ui_category = "近景设置";
     ui_category_closed = true;
     ui_min = 0; ui_max = 5;
-    ui_label = "Near Fill Size";
+    ui_label = "填充尺寸";
     ui_type = "slider";
-    ui_tooltip = "Radius of max filter to try and mitigate undersampling.";
+    ui_tooltip = "尝试减轻欠采样的最大滤波器半径。";
 > = 1;
 
 uniform float _NearExposure <
-    ui_category = "Near Field Settings";
+    ui_category = "近景设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 3.0f;
-    ui_label = "Exposure";
+    ui_label = "曝光";
     ui_type = "slider";
-    ui_tooltip = "Radius of max filter to try and mitigate undersampling.";
+    ui_tooltip = "近景曝光值。";
 > = 0.0f;
 
 uniform bool _FarPointFilter <
-    ui_category = "Far Field Settings";
+    ui_category = "远景设置";
     ui_category_closed = true;
-    ui_label = "Point Filter";
-    ui_tooltip = "Point filter when sampling while blurring.";
+    ui_label = "点过滤";
+    ui_tooltip = "模糊采样时的点过滤。";
 > = false;
 
 uniform int _FarKernelSize <
-    ui_category = "Far Field Settings";
+    ui_category = "远景设置";
     ui_category_closed = true;
     ui_min = 1; ui_max = 13;
-    ui_label = "Kernel Size";
+    ui_label = "散景核尺寸";
     ui_type = "slider";
-    ui_tooltip = "Size of far bokeh kernel";
+    ui_tooltip = "远景散景核尺寸。";
 > = 6;
 
 uniform int _FarFillWidth <
-    ui_category = "Far Field Settings";
+    ui_category = "远景设置";
     ui_category_closed = true;
     ui_min = 0; ui_max = 5;
-    ui_label = "Fill Size";
+    ui_label = "填充尺寸";
     ui_type = "slider";
-    ui_tooltip = "Radius of max filter to try and mitigate undersampling.";
+    ui_tooltip = "尝试减轻欠采样的最大滤波器半径。";
 > = 1;
 
 uniform float _FarExposure <
-    ui_category = "Far Field Settings";
+    ui_category = "远景设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 3.0f;
-    ui_label = "Exposure";
+    ui_label = "曝光";
     ui_type = "slider";
-    ui_tooltip = "Radius of max filter to try and mitigate undersampling.";
+    ui_tooltip = "远景曝光值。";
 > = 0.0f;
 
 uniform bool _PreventSpillage <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
-    ui_label = "Prevent Spillage";
-    ui_tooltip = "Attempt to prevent intensity leakage from background pixels.";
+    ui_label = "避免溢出";
+    ui_tooltip = "尝试避免来自背景像素的强度溢出。";
 > = false;
 
 uniform int _CoCFill <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0; ui_max = 10;
-    ui_label = "Near CoC Fill";
+    ui_label = "近弥散圆填充";
     ui_type = "slider";
-    ui_tooltip = "Border size of near plane circle of confusion.";
+    ui_tooltip = "近平面的弥散圆边界尺寸。";
 > = 3;
 
 uniform int _CoCBlur <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0; ui_max = 10;
-    ui_label = "Near CoC Blur";
+    ui_label = "近弥散圆模糊";
     ui_type = "slider";
-    ui_tooltip = "Blur strength of near plane circle of confusion.";
+    ui_tooltip = "近平面的弥散圆模糊强度。";
 > = 3;
 
 texture2D AFX_CoC { Width = BUFFER_WIDTH; Height = BUFFER_HEIGHT; Format = RG8; };
@@ -701,7 +701,7 @@ float4 PS_Composite(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TA
     return float4(Tonemap(result.rgb), 1.0f);
 }
 
-technique AFX_BokehBlur < ui_label = "Bokeh Blur"; ui_tooltip = "Simulate camera focusing."; > {
+technique AFX_BokehBlur < ui_label = "AcerolaFX::散景模糊[AFX_BokehBlur]"; ui_tooltip = "模拟相机对焦"; > {
     pass {
         RenderTarget = AFX_CoC;
 

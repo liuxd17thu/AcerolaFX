@@ -22,68 +22,68 @@ uniform uint AFX_FRAME_SHAPE < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_type = "combo"; \
-    ui_label = "Frame Shape"; \
-    ui_tooltip = "Shape of the frame."; \
-    ui_items = "Rectangle\0" \
-               "Circle\0"; \
+    ui_label = "边框形状"; \
+    ui_tooltip = "边框的形状。"; \
+    ui_items = "矩形\0" \
+               "圆形\0"; \
 > = 0; \
 \
 uniform float3 AFX_FRAME_COLOR < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_type = "color"; \
-    ui_label = "Frame Color"; \
+    ui_label = "边框颜色"; \
 > = 0.0f; \
 \
 uniform float AFX_FRAME_ALPHA < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0f; ui_max = 1.0f; \
-    ui_label = "Alpha"; \
+    ui_label = "透明度"; \
     ui_type = "drag"; \
-    ui_tooltip = "Adjust alpha of the frame."; \
+    ui_tooltip = "调节边框的透明度。"; \
 > = 1.0f; \
 \
 uniform float2 AFX_FRAME_RADIUS < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0f; ui_max = BUFFER_WIDTH; \
-    ui_label = "Shape Dimensions"; \
+    ui_label = "形状尺寸"; \
     ui_type = "drag"; \
-    ui_tooltip = "Adjust radius of circle frame shape."; \
+    ui_tooltip = "调节矩形的长宽或圆的半径。"; \
 > = 100.0f; \
 \
 uniform bool AFX_FRAME_INVERT < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
-    ui_label = "Invert"; \
-    ui_tooltip = "Invert the frame."; \
+    ui_label = "反转"; \
+    ui_tooltip = "反转边框。"; \
 > = false; \
 \
 uniform int2 AFX_FRAME_OFFSET < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_type = "drag"; \
-    ui_label = "Position"; \
-    ui_tooltip = "Positional offset from center of screen."; \
+    ui_label = "位置"; \
+    ui_tooltip = "边框相对于屏幕中心的位置偏移。"; \
 > = 0; \
 \
 uniform float AFX_FRAME_THETA < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = -180.0f; ui_max = 180.0f; \
-    ui_label = "Rotation"; \
+    ui_label = "旋转"; \
     ui_type = "drag"; \
-    ui_tooltip = "Adjust rotation of the frame."; \
+    ui_tooltip = "调节边框旋转角度。"; \
 > = 0; \
 \
 uniform int AFX_FRAME_DEPTH_CUTOFF < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0; ui_max = 1000; \
-    ui_label = "Depth Cutoff"; \
+    ui_label = "深度截止"; \
     ui_type = "slider"; \
-    ui_tooltip = "Distance at which depth is masked by the frame."; \
+    ui_tooltip = "被边框遮盖的深度距离。"; \
 > = 0; \
 \
 \
@@ -111,7 +111,7 @@ float4 AFX_PS_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TAR
     return float4(lerp(col.xyz, AFX_FRAME_COLOR, AFX_FRAME_ALPHA * shape), 1.0f); \
 } \
 \
-technique AFX_TECHNIQUE_NAME < ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "Overlay a frame for composition."; > { \
+technique AFX_TECHNIQUE_NAME < ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "添加一层用于构图的边框。"; > { \
     pass { \
         RenderTarget = AFXTemp1::AFX_RenderTex1; \
 \

@@ -3,28 +3,28 @@
 
 uniform uint _BlurMode <
     ui_type = "combo";
-    ui_label = "Blur Mode";
-    ui_tooltip = "How to blur the render";
-    ui_items = "Box\0"
-               "Gaussian\0";
+    ui_label = "模糊模式";
+    ui_tooltip = "如何模糊图像？";
+    ui_items = "矩形窗\0"
+               "高斯\0";
 > = 0;
 
 uniform uint _KernelSize <
     ui_min = 1; ui_max = 10;
     ui_category_closed = true;
-    ui_category = "Blur Settings";
+    ui_category = "模糊设置";
     ui_type = "slider";
-    ui_label = "Kernel Size";
-    ui_tooltip = "Size of the blur kernel";
+    ui_label = "滤波核尺寸";
+    ui_tooltip = "模糊滤波核的尺寸。";
 > = 3;
 
 uniform float _Sigma <
     ui_min = 0.0; ui_max = 5.0f;
     ui_category_closed = true;
-    ui_category = "Blur Settings";
+    ui_category = "模糊设置";
     ui_type = "drag";
-    ui_label = "Blur Strength";
-    ui_tooltip = "Sigma of the gaussian function (used for Gaussian blur)";
+    ui_label = "模糊强度";
+    ui_tooltip = "高斯函数的Sigma/标准差值，只能用于高斯模糊。";
 > = 2.0f;
 
 #ifndef AFX_BLUR_PASSES
@@ -72,7 +72,7 @@ void CS_SecondBlurPass(uint3 tid : SV_DISPATCHTHREADID) {
     tex2Dstore(Common::s_AcerolaBuffer, tid.xy, col / kernelSum);
 }
 
-technique AFX_Blur < ui_label = "Blur"; ui_tooltip = "(HDR/LDR) Blurs the image."; > {
+technique AFX_Blur < ui_label = "AcerolaFX::模糊[AFX_Blur]"; ui_tooltip = "(HDR/LDR) 模糊图像。"; > {
     pass {
         ComputeShader = CS_FirstBlurPass<8, 8>;
         DispatchSizeX = (BUFFER_WIDTH + 7) / 8;

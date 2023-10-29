@@ -45,35 +45,35 @@ uniform int AFX_BLEND_MODE < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_type = "combo"; \
-    ui_label = "Blend Mode"; \
-    ui_tooltip = "Photoshop blend mode to use"; \
-    ui_items = "No Blend\0" \
-               "Add\0" \
-               "Multiply\0" \
-               "Screen\0" \
-               "Overlay\0" \
-               "Hard Light\0" \
-               "Soft Light\0" \
-               "Color Dodge\0" \
-               "Color Burn\0" \
-               "Vivid Light\0" \
-               "Acerola Light\0"; \
+    ui_label = "混合模式"; \
+    ui_tooltip = "要使用的Photoshop混合模式"; \
+    ui_items = "不混合\0" \
+               "加法\0" \
+               "正片叠底\0" \
+               "滤色\0" \
+               "叠加\0" \
+               "强光\0" \
+               "柔光\0" \
+               "颜色减淡\0" \
+               "颜色加深\0" \
+               "亮光\0" \
+               "Acerola光\0"; \
 > = 1; \
 \
 uniform float AFX_BLEND_STRENGTH < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0.0f; ui_max = 1.0f; \
-    ui_label = "Blend Strength"; \
+    ui_label = "混合强度"; \
     ui_type = "slider"; \
-    ui_tooltip = "Adjust how strong the blending is."; \
+    ui_tooltip = "调整混合的强度。"; \
 > = 0.5f; \
 \
 uniform bool AFX_BLEND_SAMPLE_SKY < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
-    ui_label = "Blend Sky"; \
-    ui_tooltip = "Include sky in blend."; \
+    ui_label = "混合天空"; \
+    ui_tooltip = "混合时包括天空。"; \
 > = true; \
 \
 uniform float3 AFX_BLEND_COLOR < \
@@ -81,16 +81,16 @@ uniform float3 AFX_BLEND_COLOR < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0.0f; ui_max = 1.0f; \
-    ui_label = "Blend Color"; \
+    ui_label = "混合颜色"; \
     ui_type = "color"; \
-    ui_tooltip = "Color to blend with screen (if enabled)."; \
+    ui_tooltip = "要和屏幕混合的颜色（如果启用）。"; \
 > = 1.0f; \
  \
 uniform bool AFX_COLOR_BLEND < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
-    ui_label = "Use Color"; \
-    ui_tooltip = "Use color defined above to blend instead of the render."; \
+    ui_label = "使用颜色"; \
+    ui_tooltip = "使用上面设置的颜色混合，而不是渲染画面。"; \
 > = false; \
  \
 uniform int AFX_BLEND_TEXTURE < \
@@ -98,26 +98,26 @@ uniform int AFX_BLEND_TEXTURE < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_type = "combo"; \
-    ui_label = "Blend Texture"; \
-    ui_items = "Paper\0" \
-               "Watercolor\0" \
-               "Custom Texture\0"; \
+    ui_label = "混合纹理"; \
+    ui_items = "纸张\0" \
+               "水彩\0" \
+               "自定义纹理\0"; \
 > = 1; \
 \
 uniform float AFX_TEXTURE_RES < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
     ui_min = 0.0f; ui_max = 5.0f; \
-    ui_label = "Texture Resolution"; \
+    ui_label = "纹理分辨率"; \
     ui_type = "drag"; \
-    ui_tooltip = "Scaling of the blended texture."; \
+    ui_tooltip = "混合的纹理的分辨率。"; \
 > = 1.0f; \
 \
 uniform bool AFX_TEXTURE_BLEND < \
     ui_category = AFX_VARIABLE_CATEGORY; \
     ui_category_closed = true; \
-    ui_label = "Use Texture"; \
-    ui_tooltip = "Use the texture to blend on to."; \
+    ui_label = "使用纹理"; \
+    ui_tooltip = "使用纹理进行混合。"; \
 > = false; \
 \
 float4 AFX_SHADER_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET { \
@@ -175,7 +175,7 @@ float4 AFX_SHADER_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV
     return float4(output, col.a); \
 } \
 \
-technique AFX_TECHNIQUE_NAME <ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "(LDR) Blends either a flat color or the render with itself using photoshop blend mode formulas."; > { \
+technique AFX_TECHNIQUE_NAME <ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "(LDR) 使用Photoshop的混合模式，将纯色或渲染画面与自身混合。"; > { \
     pass { \
         RenderTarget = AFXTemp1::AFX_RenderTex1; \
 \

@@ -16,140 +16,140 @@
 
 uniform float _Threshold <
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Threshold";
+    ui_label = "阈值";
     ui_type = "drag";
-    ui_tooltip = "Controls how bright a color must be to trigger bloom.";
+    ui_tooltip = "控制触发泛光的亮度下限值。";
 > = 0.8f;
 
 uniform float _SoftThreshold <
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Soft Threshold";
+    ui_label = "阈值柔化";
     ui_type = "drag";
-    ui_tooltip = "Adjusts the shoulder of the bloom threshold curve.";
+    ui_tooltip = "调节泛光阈值曲线的肩部。";
 > = 0.75f;
 
 uniform float _Intensity <
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Intensity";
+    ui_label = "强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust bloom intensity.";
+    ui_tooltip = "调节泛光强度";
 > = 1.0f;
 
 uniform bool _UseKarisAvg <
-    ui_category = "Advanced settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
-    ui_label = "Use Karis Average";
-    ui_tooltip = "Suppress very bright outlying hdr values to prevent fireflies (pixel flickering).";
+    ui_label = "使用Karis均值";
+    ui_tooltip = "抑制非常明亮的HDR值以避免光斑及像素闪烁。";
 > = true;
 
 uniform float _LuminanceBias <
-    ui_category = "Advanced settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 2.0f;
-    ui_label = "Luminance Bias";
+    ui_label = "亮度偏置";
     ui_type = "drag";
-    ui_tooltip = "Luminance bias for karis average.";
+    ui_tooltip = "Karis均值的亮度偏置。";
 > = 1.0f;
 
 uniform float _DownSampleDelta <
-    ui_category = "Advanced settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 2.0f;
-    ui_label = "Down Sample Delta";
+    ui_label = "降采样偏移";
     ui_type = "drag";
-    ui_tooltip = "Adjust sampling offset when downsampling the back buffer.";
+    ui_tooltip = "调节降采样后备缓冲区时的采样偏移。";
 > = 1.0f;
 
 uniform float _UpSampleDelta <
-    ui_category = "Advanced settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 2.0f;
-    ui_label = "Up Sample Delta";
+    ui_label = "升采样偏移";
     ui_type = "drag";
-    ui_tooltip = "Adjust sampling offset when upsampling the downscaled back buffer.";
+    ui_tooltip = "调节升采样先前已降采样的后备缓冲区时的采样偏移。";
 > = 0.5f;
 
 uniform int _BlendMode <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_type = "combo";
-    ui_label = "Bloom blend mode";
-    ui_tooltip = "Adjust how bloom texture blends into image.";
-    ui_items = "Add\0"
-               "Screen\0"
-               "Color Dodge\0";
+    ui_label = "泛光混合模式";
+    ui_tooltip = "调节泛光图层与图像混合的方式。";
+    ui_items = "加法\0"
+               "滤色\0"
+               "线性减淡\0";
 > = 0;
 
 uniform float _ExposureCorrect <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Exposure";
+    ui_label = "曝光";
     ui_type = "drag";
-    ui_tooltip = "Adjust camera exposure.";
+    ui_tooltip = "调节相机曝光。";
 > = 1.0f;
 
 uniform float _Temperature <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = -1.0f; ui_max = 1.0f;
-    ui_label = "Temperature";
+    ui_label = "色温";
     ui_type = "drag";
-    ui_tooltip = "Adjust white balancing temperature.";
+    ui_tooltip = "调节白平衡色温。";
 > = 0.0f;
 
 uniform float _Tint <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = -1.0f; ui_max = 1.0f;
-    ui_label = "Tint";
+    ui_label = "色调";
     ui_type = "drag";
-    ui_tooltip = "Adjust white balance color tint.";
+    ui_tooltip = "调节白平衡色调。";
 > = 0.0f;
 
 uniform float _Contrast <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Contrast";
+    ui_label = "对比度";
     ui_type = "drag";
-    ui_tooltip = "Adjust contrast.";
+    ui_tooltip = "调节对比度。";
 > = 1.0f;
 
 uniform float3 _Brightness <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = -5.0f; ui_max = 5.0f;
-    ui_label = "Brightness";
+    ui_label = "亮度";
     ui_type = "drag";
-    ui_tooltip = "Adjust brightness of each color channel.";
+    ui_tooltip = "分颜色通道调节亮度。";
 > = float3(0.0, 0.0, 0.0);
 
 uniform float3 _ColorFilter <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Color Filter";
+    ui_label = "色彩过滤";
     ui_type = "color";
-    ui_tooltip = "Set color filter (white for no change).";
+    ui_tooltip = "设置色彩过滤（白色对应不改变）。";
 > = float3(1.0, 1.0, 1.0);
 
 uniform float _FilterIntensity <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Color Filter Intensity (HDR)";
+    ui_label = "色彩过滤强度 (HDR)";
     ui_type = "drag";
-    ui_tooltip = "Adjust the intensity of the color filter.";
+    ui_tooltip = "调节色彩过滤的强度。";
 > = 1.0f;
 
 uniform float _Saturation <
-    ui_category = "Color Correction";
+    ui_category = "色彩修正";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Saturation";
+    ui_label = "饱和度";
     ui_type = "drag";
-    ui_tooltip = "Adjust saturation.";
+    ui_tooltip = "调节饱和度。";
 > = 1.0f;
 
 float Brightness(float3 c) {
@@ -296,7 +296,7 @@ float4 PS_Blend(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET
     #endif
 }
 
-technique AFX_Bloom  <ui_label = "Bloom"; ui_tooltip = "(HDR) Blend the brighter areas of the screen into itself to exaggerate highlights."; >  {
+technique AFX_Bloom  <ui_label = "AcerolaFX::泛光[AFX_Bloom]"; ui_tooltip = "(HDR) 将图像中明亮区域与自身混合，提亮高光。"; >  {
     pass Prefilter {
         RenderTarget = DownScale::HalfTex;
         VertexShader = PostProcessVS;

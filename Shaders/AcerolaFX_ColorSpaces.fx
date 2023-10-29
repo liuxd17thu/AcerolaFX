@@ -3,8 +3,15 @@
 
 uniform uint _ColorSpace <
     ui_type = "combo";
-    ui_label = "Color Space";
-    ui_tooltip = "What color space to use for adjustments (probably OKLCH).";
+    ui_label = "色彩空间";
+    ui_tooltip = "用于调整的色彩空间。（很可能是OKLCH）\n"
+                 "译注：\n"
+                 "常规的HSL色彩空间中，由于人眼对于红绿蓝三色的感知敏感度不同，相同L值的不同颜色\n"
+                 "在人眼中的感知亮度也不一致，HSV也具有类似的问题。\n"
+                 "HCL/HCY（色相-色度-亮度）色彩空间尝试使用基于人眼感知的亮度值，以解决这一问题。\n"
+                 "OKLab和OKLCH是对于HCL的进一步改进。\n"
+                 "关于OKLCH，这里有一篇中文介绍：https://zhuanlan.zhihu.com/p/560489954 \n"
+                 "此外你可以在 https://oklch.com/ 试用基于OKLCH色彩空间的调色板。";
     ui_items = "HSL\0"
                "HSV\0"
                "HCY\0"
@@ -13,39 +20,39 @@ uniform uint _ColorSpace <
 > = 0;
 
 uniform float _HAAdd <
-    ui_label = "H/A Add";
+    ui_label = "H/A 加算";
     ui_type = "drag";
-    ui_tooltip = "Additively adjust the hue or A coord of LAB.";
+    ui_tooltip = "以加算方式调节 { 色相 / LAB的A分量 }。";
 > = 0.0f;
 
 uniform float _HAMultiply <
-    ui_label = "H/A Multiply";
+    ui_label = "H/A 乘算";
     ui_type = "drag";
-    ui_tooltip = "Scale the hue or A coord of LAB.";
+    ui_tooltip = "缩放 { 色相 / LAB中的A值 }。";
 > = 1.0f;
 
 uniform float _SCBAdd <
-    ui_label = "S/C/B Add";
+    ui_label = "S/C/B 加算";
     ui_type = "drag";
-    ui_type = "Additively adjust the saturation, chroma, or B coord of LAB.";
+    ui_type = "以加算方式调节 { 饱和度 / 色度 / LAB的B分量 }。";
 > = 0.0f;
 
 uniform float _SCBMultiply <
-    ui_label = "S/C/B Multiply";
+    ui_label = "S/C/B 乘算";
     ui_type = "drag";
-    ui_tooltip = "Scale the saturation, chroma, or B coord of LAB.";
+    ui_tooltip = "缩放 { 饱和度 / 色度 / LAB的B分量 }。";
 > = 1.0f;
 
 uniform float _LVYAdd <
-    ui_label = "L/V/Y Add";
+    ui_label = "L/V/Y 加算";
     ui_type = "drag";
-    ui_type = "Additively adjust the brightness of the image (um ackshually it's the luminance/lightness/vibrance/white point).";
+    ui_type = "以加算方式调节图像亮度。\n实际是 { L[Luminance] / L[Lightness] / V[Vibrance] / 白点 }。";
 > = 0.0f;
 
 uniform float _LVYMultiply <
-    ui_label = "L/V/Y Multiply";
+    ui_label = "L/V/Y 乘算";
     ui_type = "drag";
-    ui_tooltip = "Scale the brightness of the image (um ackshually it's the luminance/lightness/vibrance/white point).";
+    ui_tooltip = "缩放图像亮度。\n实际是 { L[Luminance] / L[Lightness] / V[Vibrance] / 白点 }。";
 > = 1.0f;
 
 sampler2D ColorSpaceAdjust { Texture = AFXTemp1::AFX_RenderTex1; MagFilter = POINT; MinFilter = POINT; MipFilter = POINT; };
@@ -232,7 +239,7 @@ float4 PS_ColorSpaceAdjust(float4 position : SV_POSITION, float2 uv : TEXCOORD) 
     return float4(saturate(rgb), 1.0f);
 }
 
-technique AFX_ColorSpaceAdjust < ui_label = "Color Space Adjust"; ui_tooltip = "(LDR) Make use of several color spaces to make specific adjustments to the render."; > {
+technique AFX_ColorSpaceAdjust < ui_label = "AcerolaFX::色彩空间调节[AFX_ColorSpaceAdjust]"; ui_tooltip = "(LDR) 使用多种色彩空间对图像进行特定调节。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

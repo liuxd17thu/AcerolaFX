@@ -4,61 +4,61 @@
 
 uniform float _MinLogLuminance <
     ui_min = -20.0f; ui_max = 20.0f;
-    ui_label = "Min Log Luminance";
+    ui_label = "最小对数亮度";
     ui_type = "drag";
-    ui_tooltip = "Adjust the minimum log luminance allowed.";
+    ui_tooltip = "调节最小的容许对数亮度。";
 > = -5.0f;
 
 uniform float _MaxLogLuminance <
     ui_min = -20.0f; ui_max = 20.0f;
-    ui_label = "Max Log Luminance";
+    ui_label = "最大对数亮度";
     ui_type = "drag";
-    ui_tooltip = "Adjust the maximum log luminance allowed.";
+    ui_tooltip = "调节最大的容许对数亮度。";
 > = -2.5f;
 
 uniform float _Tau <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 10.0f;
-    ui_label = "Tau";
+    ui_label = "自动曝光速度";
     ui_type = "drag";
-    ui_tooltip = "Adjust rate at which auto exposure adjusts.";
+    ui_tooltip = "调节自动曝光的速率。";
 > = 5.0f;
 
 uniform float _S1 <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 200.0f;
-    ui_label = "Sensitivity Constant 1";
+    ui_label = "敏感度常量1";
     ui_type = "drag";
-    ui_tooltip = "Adjust sensor sensitivity ratio 1.";
+    ui_tooltip = "调整传感器敏感度比率1。";
 > = 100.0f;
 
 uniform float _S2 <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 200.0f;
-    ui_label = "Sensitivity Constant 2";
+    ui_label = "敏感度常量2";
     ui_type = "drag";
-    ui_tooltip = "Adjust sensor sensitivity ratio 2.";
+    ui_tooltip = "调整传感器敏感度比率2。";
 > = 100.0f;
 
 uniform float _K <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 1.0f; ui_max = 100.0f;
-    ui_label = "Calibration Constant";
+    ui_label = "校准常数";
     ui_type = "drag";
-    ui_tooltip = "Adjust reflected-light meter calibration constant.";
+    ui_tooltip = "调整反射光计校准常数。";
 > = 12.5f;
 
 uniform float _q <
-    ui_category = "Advanced Settings";
+    ui_category = "高级设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 10.0f;
-    ui_label = "Lens Attenuation";
+    ui_label = "镜头衰减";
     ui_type = "drag";
-    ui_tooltip = "Adjust lens and vignetting attenuation.";
+    ui_tooltip = "调节镜头和暗角衰减。";
 > = 0.65f;
 
 uniform float _DeltaTime < source = "frametime"; >;
@@ -193,7 +193,7 @@ void CS_AutoExposure(uint3 tid : SV_DISPATCHTHREADID) {
 
 
 
-technique AFX_AutoExposure <ui_label = "Auto Exposure"; ui_tooltip = "(HDR) Automatically adjusts exposure based on average luminance of the screen. Generally goes right before tone mapping."; > {
+technique AFX_AutoExposure <ui_label = "AcerolaFX::自动曝光[AFX_AutoExposure]"; ui_tooltip = "(HDR) 基于屏幕图像平均亮度，自动调整曝光。一般恰好置于色调映射前面。"; > {
     pass {
         ComputeShader = CS_Downscale<8, 8>;
         DispatchSizeX = (BUFFER_WIDTH + 7) / 8;

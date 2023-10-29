@@ -4,18 +4,18 @@
 
 uniform uint _ColorBlindMode <
     ui_type = "combo";
-    ui_label = "Color Blind Mode";
-    ui_tooltip = "What color blindness to simulate.";
-    ui_items = "Deuteranopia (Red-Green)\0"
-               "Protanopia (Red-Green)\0"
-               "Tritanopia (Blue-Yellow)\0";
+    ui_label = "色盲模式";
+    ui_tooltip = "模拟哪种色盲模式？";
+    ui_items = "绿色盲（红绿）\0"
+               "红色盲（红绿）\0"
+               "蓝色盲（蓝黄）\0";
 > = 0;
 
 uniform float _Severity <
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Severity";
+    ui_label = "严重性";
     ui_type = "slider";
-    ui_tooltip = "Adjust severity of color blindness.";
+    ui_tooltip = "调节色盲的严重程度。";
 > = 0.5f;
 
 sampler2D ColorBlindness { Texture = AFXTemp1::AFX_RenderTex1; MagFilter = POINT; MinFilter = POINT; MipFilter = POINT; };
@@ -51,7 +51,7 @@ float4 PS_ColorBlindness(float4 position : SV_POSITION, float2 uv : TEXCOORD) : 
     return float4(cb, 1.0f);
 }
 
-technique AFX_ColorBlindness < ui_label = "Color Blindness"; ui_tooltip = "(SDR) Simulate color blindness."; > {
+technique AFX_ColorBlindness < ui_label = "AcerolaFX::色盲[AFX_ColorBlindness]"; ui_tooltip = "(SDR) 模拟色盲效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

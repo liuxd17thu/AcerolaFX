@@ -3,8 +3,8 @@
 
 uniform uint _Fraction <
 	ui_type = "slider";
-	ui_label = "Fraction";
-    ui_tooltip = "Fraction to divide the screen into.";
+	ui_label = "等分";
+    ui_tooltip = "将画面几等分？";
 	ui_min = 1; ui_max = 5;
 > = 3;
 
@@ -26,7 +26,7 @@ float4 PS_Composition(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_
     return col;
 }
 
-technique AFX_Composition < ui_label = "Composition"; ui_tooltip = "Overlay fraction lines to help with shot composition."; > {
+technique AFX_Composition < ui_label = "AcerolaFX::构图[AFX_Composition]"; ui_tooltip = "叠加一层构图线，帮助截图构图。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 
