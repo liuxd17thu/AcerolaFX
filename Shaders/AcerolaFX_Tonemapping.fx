@@ -3,91 +3,91 @@
 
 uniform int _Tonemapper <
     ui_type = "combo";
-    ui_label = "Tonemapper";
-    ui_items = "RGB Clamp\0"
+    ui_label = "色调映射算子";
+    ui_items = "RGB钳位\0"
                "Hill ACES\0"
                "Narkowicz ACES\0"
-               "Reinhard Extended\0"
-               "Hable\0";
+               "扩展的Reinhard\0"
+               "Hable / 电影曲线\0";
 > = 0;
 
 uniform float _Cwhite <
     ui_category_closed = true;
-    ui_category = "Reinhard Extended";
+    ui_category = "扩展的Reinhard";
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "White Point";
+    ui_label = "白点";
     ui_type = "drag";
-    ui_tooltip = "Adjust white point of the screen.";
+    ui_tooltip = "调节屏幕白点值。";
 > = 1.0f;
 
 uniform float _A <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Shoulder Strength";
+    ui_label = "肩部强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust shoulder strength of film curve.";
+    ui_tooltip = "调节电影曲线的肩部强度。";
 > = 0.15f;
 
 uniform float _B <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Linear Strength";
+    ui_label = "线性强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust linear strength of film curve.";
+    ui_tooltip = "调节电影曲线的线性强度。";
 > = 0.5f;
 
 uniform float _C <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Linear Angle";
+    ui_label = "线性角度";
     ui_type = "drag";
-    ui_tooltip = "Adjust linear angle of film curve.";
+    ui_tooltip = "调节电影曲线的线性角度。";
 > = 0.1f;
 
 uniform float _D <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Toe Strength";
+    ui_label = "趾部强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust toe strength of film curve.";
+    ui_tooltip = "调节电影曲线的趾部强度。";
 > = 0.2f;
 
 uniform float _E <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Toe Numerator";
+    ui_label = "趾部分子";
     ui_type = "drag";
-    ui_tooltip = "Adjust toe numerator of film curve.";
+    ui_tooltip = "调节电影曲线的趾部分子";
 > = 0.02f;
 
 uniform float _F <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Toe Denominator";
+    ui_label = "趾部分母";
     ui_type = "drag";
-    ui_tooltip = "Adjust toe denominator of film curve.";
+    ui_tooltip = "调节电影曲线的趾部分母";
 > = 0.3f;
 
 uniform float _W <
     ui_category_closed = true;
     ui_category = "Hable";
     ui_min = 0.0f; ui_max = 60.0f;
-    ui_label = "Linear White Point";
+    ui_label = "线性白点值";
     ui_type = "drag";
-    ui_tooltip = "Adjust linear white point of film curve.";
+    ui_tooltip = "调节电影曲线的线性白点值。";
 > = 11.2f;
 
 uniform bool _DebugHDR <
     ui_category_closed = true;
-    ui_category = "Advanced settings";
-    ui_label = "Debug HDR";
-    ui_tooltip = "Check to see which colors are in high dynamic range (aka rgb clamped).";
+    ui_category = "高级设置";
+    ui_label = "HDR调试";
+    ui_tooltip = "勾选以观察哪些颜色落在了HDR范围（即发生了RGB钳位）。";
 > = false;
 
 static const float3x3 ACESInputMat = float3x3(
@@ -170,7 +170,7 @@ float4 PS_Tonemap(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARG
     return float4(output, col.a);
 }
 
-technique AFX_Tonemapping <ui_label = "Tonemapping"; ui_tooltip = "(HDR -> LDR) Converts all previous HDR passes into LDR."; > {
+technique AFX_Tonemapping <ui_label = "AcerolaFX::色调映射[AFX_Tonemapping]"; ui_tooltip = "(HDR -> LDR) 将先前的所有HDR处理过程转换至LDR。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

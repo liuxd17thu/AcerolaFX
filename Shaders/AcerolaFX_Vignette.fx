@@ -3,42 +3,42 @@
 
 uniform float3 _VignetteColor <
     ui_type = "color";
-    ui_label = "Vignette Color";
+    ui_label = "暗角颜色";
 > = 0.0f;
 
 uniform float2 _VignetteSize <
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Vignette Size";
+    ui_label = "暗角尺寸";
     ui_type = "drag";
-    ui_tooltip = "Size of the vignette axes.";
+    ui_tooltip = "暗角的二维尺寸。";
 > = 1.0f;
 
 uniform float2 _VignetteOffset <
     ui_min = -1.0f; ui_max = 1.0f;
-    ui_label = "Vignette Offset";
+    ui_label = "暗角偏移";
     ui_type = "drag";
-    ui_tooltip = "Positional offset of the vignette from the center of the screen.";
+    ui_tooltip = "暗角效果位置相对屏幕中央的偏移。";
 > = 0.0f;
 
 uniform float _Intensity <
     ui_min = 0f; ui_max = 5.0f;
-    ui_label = "Intensity";
+    ui_label = "强度";
     ui_type = "slider";
-    ui_tooltip = "Adjust how intense the offset is.";
+    ui_tooltip = "调节暗角的强度。";
 > = 1.0f;
 
 uniform float _Roundness <
     ui_min = 0f; ui_max = 10.0f;
-    ui_label = "Roundness";
+    ui_label = "圆度";
     ui_type = "slider";
-    ui_tooltip = "Adjust how smooth the intensity change is from the center of the screen.";
+    ui_tooltip = "调节暗角整体的形状，数值由低到高大致为星形->圆/椭圆->矩形。";
 > = 1.0f;
 
 uniform float _Smoothness <
     ui_min = 0.01f; ui_max = 2.0f;
-    ui_label = "Smoothness";
+    ui_label = "平滑度";
     ui_type = "slider";
-    ui_tooltip = "Adjust how much each color channel should be offset.";
+    ui_tooltip = "调节强度从屏幕中央向外的变化平滑程度。";
 > = 1.0f;
 
 sampler2D Vignette { Texture = AFXTemp1::AFX_RenderTex1; MagFilter = POINT; MinFilter = POINT; MipFilter = POINT; };
@@ -59,7 +59,7 @@ float4 PS_Vignette(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TAR
     return float4(lerp(_VignetteColor, col.rgb, vfactor), 1.0f);
 }
 
-technique AFX_Vignette < ui_label = "Vignette"; ui_tooltip = "Apply a cinematic gradient border to the screen."; > {
+technique AFX_Vignette < ui_label = "AcerolaFX::暗角[AFX_Vignette]"; ui_tooltip = "对图像应用类似电影的渐变暗角效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

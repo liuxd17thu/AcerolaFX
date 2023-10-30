@@ -2,72 +2,72 @@
 #include "Includes/AcerolaFX_TempTex1.fxh"
 
 uniform float3 _EdgeColor <
-    ui_label = "Edge Color";
-    ui_tooltip = "Color of edges";
+    ui_label = "边缘颜色";
+    ui_tooltip = "边缘的颜色。";
     ui_type = "color";
 > = 0.0f;
 
 uniform float _Alpha <
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Alpha";
+    ui_label = "透明度";
     ui_type = "drag";
-    ui_tooltip = "Adjust edge transparency.";
+    ui_tooltip = "调节边缘透明度。";
 > = 1.0f;
 
 uniform int _EdgeMode <
     ui_spacing = 5.0f;
     ui_type = "combo";
-    ui_label = "Edge Mode";
-    ui_items = "Depth\0"
-                "Depth and Normals\0";
+    ui_label = "边缘模式";
+    ui_items = "深度\0"
+                "深度和法线\0";
 > = 1;
 
 uniform float _DepthThreshold <
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Depth Threshold";
+    ui_label = "深度阈值";
     ui_type = "drag";
-    ui_tooltip = "Adjust the threshold for depth differences to count as an edge.";
+    ui_tooltip = "调节用于判定边缘的深度差异阈值。";
 > = 0.1f;
 
 uniform float _NormalThreshold <
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Normal Threshold";
+    ui_label = "法线阈值";
     ui_type = "drag";
-    ui_tooltip = "Adjust the threshold for normal differences to count as an edge.";
+    ui_tooltip = "调节用于判定边缘的法线差异阈值。";
 > = 3.0f;
 
 uniform int _DepthCutoff <
     ui_min = 0; ui_max = 1000;
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
-    ui_label = "Depth Cutoff";
+    ui_label = "深度截止";
     ui_type = "slider";
-    ui_tooltip = "Distance at which depth is masked by the frame.";
+    ui_tooltip = "深度被图像遮蔽的距离。";
 > = 0;
 
 uniform bool _UseFogFalloff <
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
-    ui_label = "Use Fog Falloff";
-    ui_tooltip = "Enable to use the depth falloff logic below akin to fog.";
+    ui_label = "使用雾气衰减";
+    ui_tooltip = "启用以下类似于雾气的深度衰减逻辑。";
 > = true;
 
 uniform float _EdgeFalloff <
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 0.01f;
-    ui_label = "Falloff";
+    ui_label = "衰减";
     ui_type = "slider";
-    ui_tooltip = "Adjust rate at which the effect falls off at a distance.";
+    ui_tooltip = "调节效果在远处衰减的速率。";
 > = 0.0f;
 
 uniform float _Offset <
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 1000.0f;
-    ui_label = "Falloff Offset";
+    ui_label = "衰减偏置";
     ui_type = "slider";
-    ui_tooltip = "Offset distance at which effect starts to falloff.";
+    ui_tooltip = "效果开始衰减的距离位置偏置。";
 > = 0.0f;
 
 sampler2D Normals { Texture = AFXTemp1::AFX_RenderTex1; MagFilter = POINT; MinFilter = POINT; MipFilter = POINT; };
@@ -154,7 +154,7 @@ float4 PS_EdgeDetect(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_T
     return float4(lerp(col.rgb, lerp(col.rgb, _EdgeColor.rgb, saturate(output)), _Alpha), 1.0f);
 }
 
-technique AFX_EdgeDetect < ui_label = "Edge Detector"; ui_tooltip = "(LDR) Attempts to detect edges of the image."; > {
+technique AFX_EdgeDetect < ui_label = "AcerolaFX::边缘探测[AFX_EdgeDetect]"; ui_tooltip = "(LDR) 尝试探测图像中的边缘。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

@@ -4,170 +4,170 @@
 
 uniform bool _PrintCyan <
     ui_category_closed = true;
-    ui_category = "Cyan";
-    ui_label = "Print";
-    ui_tooltip = "Draw cyan or not.";
+    ui_category = "青";
+    ui_label = "绘制";
+    ui_tooltip = "是否绘制青色。";
 > = true;
 
 uniform float _CyanDotSize <
     ui_min = 0.0f; ui_max = 3.0f;
     ui_category_closed = true;
-    ui_category = "Cyan";
+    ui_category = "青";
     ui_type = "drag";
-    ui_label = "Dot Size";
-    ui_tooltip = "Size of cyan dots.";
+    ui_label = "点尺寸";
+    ui_tooltip = "青色斑点尺寸。";
 > = 1.0f;
 
 uniform float _CyanBias <
     ui_min = -2.0f; ui_max = 2.0f;
     ui_category_closed = true;
-    ui_category = "Cyan";
+    ui_category = "青";
     ui_type = "drag";
-    ui_label = "Bias";
-    ui_tooltip = "Additive modifier on cyan value.";
+    ui_label = "偏置";
+    ui_tooltip = "青色值的加法调节。";
 > = 0.0f;
 
 uniform float _CyanExponent <
     ui_min = -10.0f; ui_max = 10.0f;
     ui_category_closed = true;
-    ui_category = "Cyan";
+    ui_category = "青";
     ui_type = "drag";
-    ui_label = "Exponent";
-    ui_tooltip = "Exponent on the value to bring darker values down.";
+    ui_label = "指数";
+    ui_tooltip = "应用指数，以压暗较暗数值。";
 > = 1.0f;
 
 uniform float2 _CyanOffset <
     ui_category_closed = true;
-    ui_category = "Cyan";
+    ui_category = "青";
     ui_type = "drag";
-    ui_label = "Offset";
-    ui_tooltip = "Offset the dots.";
+    ui_label = "偏移";
+    ui_tooltip = "斑点的偏移。";
 > = 0.0f;
 
 uniform bool _PrintMagenta <
     ui_category_closed = true;
-    ui_category = "Magenta";
-    ui_label = "Print";
-    ui_tooltip = "Draw Magenta or not.";
+    ui_category = "品红";
+    ui_label = "绘制";
+    ui_tooltip = "是否绘制品红色。";
 > = true;
 
 uniform float _MagentaDotSize <
     ui_min = 0.0f; ui_max = 3.0f;
     ui_category_closed = true;
-    ui_category = "Magenta";
+    ui_category = "品红";
     ui_type = "drag";
-    ui_label = "Dot Size";
-    ui_tooltip = "Size of Magenta dots.";
+    ui_label = "点尺寸";
+    ui_tooltip = "品红色斑点尺寸。";
 > = 1.0f;
 
 uniform float _MagentaBias <
     ui_min = -2.0f; ui_max = 2.0f;
     ui_category_closed = true;
-    ui_category = "Magenta";
+    ui_category = "品红";
     ui_type = "drag";
-    ui_label = "Bias";
-    ui_tooltip = "Additive modifier on Magenta value.";
+    ui_label = "偏置";
+    ui_tooltip = "品红色值的加法调节。";
 > = 0.0f;
 
 uniform float _MagentaExponent <
     ui_min = -10.0f; ui_max = 10.0f;
     ui_category_closed = true;
-    ui_category = "Magenta";
+    ui_category = "品红";
     ui_type = "drag";
-    ui_label = "Exponent";
-    ui_tooltip = "Exponent on the value to bring darker values down.";
+    ui_label = "指数";
+    ui_tooltip = "应用指数，以压暗较暗数值。";
 > = 1.0f;
 
 uniform float2 _MagentaOffset <
     ui_category_closed = true;
-    ui_category = "Magenta";
+    ui_category = "品红";
     ui_type = "drag";
-    ui_label = "Offset";
-    ui_tooltip = "Offset the dots.";
+    ui_label = "偏移";
+    ui_tooltip = "斑点的偏移。";
 > = 0.0f;
 
 uniform bool _PrintYellow <
     ui_category_closed = true;
-    ui_category = "Yellow";
-    ui_label = "Print";
-    ui_tooltip = "Draw Yellow or not.";
+    ui_category = "黄";
+    ui_label = "绘制";
+    ui_tooltip = "是否绘制黄色。";
 > = true;
 
 uniform float _YellowDotSize <
     ui_min = 0.0f; ui_max = 3.0f;
     ui_category_closed = true;
-    ui_category = "Yellow";
+    ui_category = "黄";
     ui_type = "drag";
-    ui_label = "Dot Size";
-    ui_tooltip = "Size of Yellow dots.";
+    ui_label = "点尺寸";
+    ui_tooltip = "黄色斑点尺寸。";
 > = 1.0f;
 
 uniform float _YellowBias <
     ui_min = -2.0f; ui_max = 2.0f;
     ui_category_closed = true;
-    ui_category = "Yellow";
+    ui_category = "黄";
     ui_type = "drag";
-    ui_label = "Bias";
-    ui_tooltip = "Additive modifier on Yellow value.";
+    ui_label = "偏置";
+    ui_tooltip = "黄色值的加法调节。";
 > = 0.0f;
 
 uniform float _YellowExponent <
     ui_min = -10.0f; ui_max = 10.0f;
     ui_category_closed = true;
-    ui_category = "Yellow";
+    ui_category = "黄";
     ui_type = "drag";
-    ui_label = "Exponent";
-    ui_tooltip = "Exponent on the value to bring darker values down.";
+    ui_label = "指数";
+    ui_tooltip = "应用指数，以压暗较暗数值。";
 > = 1.0f;
 
 uniform float2 _YellowOffset <
     ui_category_closed = true;
-    ui_category = "Yellow";
+    ui_category = "黄";
     ui_type = "drag";
-    ui_label = "Offset";
-    ui_tooltip = "Offset the dots.";
+    ui_label = "偏移";
+    ui_tooltip = "斑点的偏移。";
 > = 0.0f;
 
 uniform bool _PrintBlack <
     ui_category_closed = true;
-    ui_category = "Black";
-    ui_label = "Print";
-    ui_tooltip = "Draw Black or not.";
+    ui_category = "黑";
+    ui_label = "绘制";
+    ui_tooltip = "是否绘制黑色。";
 > = true;
 
 uniform float _BlackDotSize <
     ui_min = 0.0f; ui_max = 3.0f;
     ui_category_closed = true;
-    ui_category = "Black";
+    ui_category = "黑";
     ui_type = "drag";
-    ui_label = "Dot Size";
-    ui_tooltip = "Size of Black dots.";
+    ui_label = "点尺寸";
+    ui_tooltip = "黑色斑点尺寸。";
 > = 1.0f;
 
 uniform float _BlackBias <
     ui_min = -2.0f; ui_max = 2.0f;
     ui_category_closed = true;
-    ui_category = "Black";
+    ui_category = "黑";
     ui_type = "drag";
-    ui_label = "Bias";
-    ui_tooltip = "Additive modifier on Black value.";
+    ui_label = "偏置";
+    ui_tooltip = "黑色值的加法调节。";
 > = 0.0f;
 
 uniform float _BlackExponent <
     ui_min = -10.0f; ui_max = 10.0f;
     ui_category_closed = true;
-    ui_category = "Black";
+    ui_category = "黑";
     ui_type = "drag";
-    ui_label = "Exponent";
-    ui_tooltip = "Exponent on the value to bring darker values down.";
+    ui_label = "指数";
+    ui_tooltip = "应用指数，以压暗较暗数值。";
 > = 1.0f;
 
 uniform float2 _BlackOffset <
     ui_category_closed = true;
-    ui_category = "Black";
+    ui_category = "黑";
     ui_type = "drag";
-    ui_label = "Offset";
-    ui_tooltip = "Offset the dots.";
+    ui_label = "偏移";
+    ui_tooltip = "斑点的偏移。";
 > = 0.0f;
 
 
@@ -229,7 +229,7 @@ float4 PS_Offset(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGE
     return float4(saturate(output - k * _PrintBlack), 1.0f);
 }
 
-technique AFX_Halftone < ui_label = "Halftone"; ui_tooltip = "(LDR) Adjusts the gamma correction of the screen."; > {
+technique AFX_Halftone < ui_label = "AcerolaFX::半色调[AFX_Halftone]"; ui_tooltip = "(LDR) 印刷网点效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

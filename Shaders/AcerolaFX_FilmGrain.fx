@@ -3,40 +3,40 @@
 
 uniform float _Intensity <
     ui_min = 0.0f; ui_max = 2.0f;
-    ui_label = "Grain Intensity";
+    ui_label = "颗粒强度";
     ui_type = "drag";
-    ui_tooltip = "Adjust strength of the grain.";
+    ui_tooltip = "调节颗粒强度。";
 > = 0.15f;
 
 uniform float _Response <
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Luminance Response";
+    ui_label = "亮度响应";
     ui_type = "drag";
-    ui_tooltip = "Adjust strength of the grain.";
+    ui_tooltip = "";
 > = 0.15f;
 
 uniform bool _AnimateNoise <
-    ui_label = "Animate";
+    ui_label = "动画";
     ui_type = "drag";
-    ui_tooltip = "Animate the noise.";
+    ui_tooltip = "噪点动画。";
 > = false;
 
 uniform uint _KernelSize <
     ui_min = 0; ui_max = 5;
     ui_category_closed = true;
-    ui_category = "Blur Settings";
+    ui_category = "模糊设置";
     ui_type = "slider";
-    ui_label = "Gaussian Kernel Size";
-    ui_tooltip = "Size of the gaussian kernel";
+    ui_label = "高斯核尺寸";
+    ui_tooltip = "高斯核的尺寸。";
 > = 0;
 
 uniform float _Sigma <
     ui_min = 0.0; ui_max = 5.0f;
     ui_category_closed = true;
-    ui_category = "Blur Settings";
+    ui_category = "模糊设置";
     ui_type = "drag";
-    ui_label = "Blur Strength";
-    ui_tooltip = "Sigma of the gaussian function";
+    ui_label = "模糊强度";
+    ui_tooltip = "高斯函数的标准差。";
 > = 2.0f;
 
 uniform float deltaTime < source = "frametime"; >;
@@ -127,7 +127,7 @@ float4 PS_FilmGrain(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TA
     return float4(c.rgb + c.rgb * noise * _Intensity * weight, 1.0f);
 }
 
-technique AFX_FilmGrain < ui_label = "Film Grain"; ui_tooltip = "(HDR/LDR) Applies film grain to the render."; > {
+technique AFX_FilmGrain < ui_label = "AcerolaFX::胶片颗粒[AFX_FilmGrain]"; ui_tooltip = "(HDR/LDR) 对图像应用胶片颗粒。"; > {
     pass {
         ComputeShader = CS_GenerateNoise<8, 8>;
         DispatchSizeX = (AFX_NOISETEX_WIDTH + 7) / 8;

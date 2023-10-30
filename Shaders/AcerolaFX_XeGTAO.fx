@@ -3,84 +3,84 @@
 #include "Includes/AcerolaFX_XeGTAO.fxh"
 
 uniform float _EffectRadius <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 100.0f;
-    ui_label = "Effect Radius";
+    ui_label = "效果半径";
     ui_type = "drag";
-    ui_tooltip = "Modify radius of sampling.";
+    ui_tooltip = "调节采样半径。";
 > = 0.5f;
 
 uniform float _RadiusMultiplier <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 5.0f;
-    ui_label = "Radius Multiplier";
+    ui_label = "半径倍率";
     ui_type = "drag";
-    ui_tooltip = "Modify sampling radius multiplier.";
+    ui_tooltip = "更改采样半径倍率。";
 > = 1.457f;
 
 uniform float _EffectFalloffRange <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 5.0f;
-    ui_label = "Falloff Range";
+    ui_label = "衰减范围";
     ui_type = "drag";
-    ui_tooltip = "Distant samples contribute less.";
+    ui_tooltip = "远处采样点产生的贡献更少。";
 > = 0.615f;
 
 uniform float _SampleDistributionPower <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 10.0f;
-    ui_label = "Sample Distribution Power";
+    ui_label = "样本分布强度";
     ui_type = "drag";
-    ui_tooltip = "Small crevices more important that big surfaces."; 
+    ui_tooltip = "小缝隙比较大表面更为重要。"; 
 > = 2.0f;
 
 uniform float _ThinOccluderCompensation <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 10.0f;
-    ui_label = "Thin Occluder Compensation";
-    ui_tooltip = "Adjust how much the samples account for thin objects.";
+    ui_label = "薄遮挡物补偿";
+    ui_tooltip = "调节反映薄遮挡物的样本数量。";
     ui_type = "drag";
 > = 0.0f;
 
 uniform float _SlopeCompensation <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Slope Compensation";
-    ui_tooltip = "Slopes get darkened for some reason sometimes so this compensates if it's bad.";
+    ui_label = "斜坡补偿";
+    ui_tooltip = "有时斜坡会因为一些原因变暗，因此可以使用此设置补偿。";
     ui_type = "drag";
 > = 0.05f;
 
 uniform float _FinalValuePower <
-    ui_category = "SSAO Settings";
+    ui_category = "屏幕空间环境光遮蔽 设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 5.0f;
-    ui_label = "Final Value Power";
+    ui_label = "最终遮蔽强度";
     ui_type = "drag";
-    ui_tooltip = "Modify the final ambient occlusion value exponent.";
+    ui_tooltip = "调节最终的环境光遮蔽值指数。";
 > = 2.2f;
 
 uniform float _SigmaD <
-    ui_category = "Blur Settings";
+    ui_category = "模糊设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 10.0f;
     ui_label = "SigmaD";
     ui_type = "drag";
-    ui_tooltip = "Modify the distance of bilateral filter samples (if you set this too high it will crash the game probably so I have taken that power away from you).";
+    ui_tooltip = "调节双边过滤的样本距离。\n设置得过高可能导致游戏崩溃，因此我没收了这项权力。——Acerola";
 > = 1.0f;
 
 uniform float _SigmaR <
-    ui_category = "Blur Settings";
+    ui_category = "模糊设置";
     ui_category_closed = true;
     ui_min = 0.01f; ui_max = 5.0f;
     ui_label = "SigmaR";
     ui_type = "drag";
-    ui_tooltip = "Modify the blur range, higher values approach a normal gaussian blur.";
+    ui_tooltip = "调节模糊范围，较高的值接近高斯模糊。";
 > = 1.0f;
 
 
@@ -495,7 +495,7 @@ technique AFX_SetupSSAO < hidden = true; enabled = true; timeout = 1; > {
     }
 }
 
-technique AFX_XeGTAO < ui_label = "XeGTAO"; ui_tooltip = "(LDR) Approximate ground truth ambient occlusion for better lighting."; > {
+technique AFX_XeGTAO < ui_label = "AcerolaFX::XeGTAO环境光遮蔽[AFX_XeGTAO]"; ui_tooltip = "(LDR) 使用GTAO算法进行环境光遮蔽，产生更好的光影。\n译注：\nGTAO全称为\"Ground Truth Ambient Occulusion\"(地面真值环境光遮蔽？)。\nXeGTAO是Intel对此算法的实现。"; > {
 
     pass PrefilterDepths {
         ComputeShader = CS_PrefilterDepths<AFX_NUM_THREADS_X, AFX_NUM_THREADS_Y>;

@@ -3,9 +3,9 @@
 
 uniform float _Gamma <
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_label = "Gamma";
+    ui_label = "伽马";
     ui_type = "drag";
-    ui_tooltip = "Adjust gamma correction.";
+    ui_tooltip = "调节伽马校正。";
 > = 1.0f;
 
 sampler2D Gamma { Texture = AFXTemp1::AFX_RenderTex1; MagFilter = POINT; MinFilter = POINT; MipFilter = POINT; };
@@ -17,7 +17,7 @@ float4 PS_Gamma(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET
     return saturate(pow(abs(col), _Gamma));
 }
 
-technique AFX_Gamma < ui_label = "Gamma"; ui_tooltip = "(LDR) Adjusts the gamma correction of the screen."; > {
+technique AFX_Gamma < ui_label = "AcerolaFX::伽马"; ui_tooltip = "(LDR) 调节图像的伽马校正。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

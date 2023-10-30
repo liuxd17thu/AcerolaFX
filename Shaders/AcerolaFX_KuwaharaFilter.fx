@@ -4,84 +4,84 @@
 
 uniform int _Filter <
     ui_type = "combo";
-    ui_label = "Filter Type";
-    ui_items = "Basic\0"
-               "Generalized\0"
-               "Anisotropic\0";
-    ui_tooltip = "Which extension of the kuwahara filter?";
+    ui_label = "滤波器类型";
+    ui_items = "基本\0"
+               "广义\0"
+               "各向异性\0";
+    ui_tooltip = "使用桑原滤波的何种扩展？";
 > = 0;
 
 uniform uint _KernelSize <
     ui_min = 2; ui_max = 30;
     ui_type = "slider";
-    ui_label = "Radius";
-    ui_tooltip = "Size of the kuwahara filter kernel";
+    ui_label = "半径";
+    ui_tooltip = "桑原滤波核的尺寸。";
 > = 1;
 
 uniform float _Q <
     ui_min = 0; ui_max = 18;
     ui_type = "drag";
-    ui_label = "Sharpness";
-    ui_tooltip = "Adjusts sharpness of the color segments";
+    ui_label = "锐度";
+    ui_tooltip = "调节颜色区块的锐度。";
 > = 8;
 
 uniform uint _BlurRadius <
     ui_min = 1; ui_max = 6;
     ui_category_closed = true;
-    ui_category = "Anisotropic Settings";
+    ui_category = "各向异性设置";
     ui_type = "slider";
-    ui_label = "Blur Radius";
-    ui_tooltip = "Size of the gaussian blur kernel for eigenvectors";
+    ui_label = "模糊半径";
+    ui_tooltip = "用于特征向量的高斯模糊核尺寸。";
 > = 2;
 
 uniform float _Alpha <
     ui_min = 0.01f; ui_max = 2.0f;
     ui_category_closed = true;
-    ui_category = "Anisotropic Settings";
+    ui_category = "各向异性设置";
     ui_type = "drag";
     ui_label = "Alpha";
-    ui_tooltip = "How extreme the angle of the kernel is."; 
+    ui_tooltip = "滤波核偏向角度的程度。"; 
 > = 1.0f;
 
 uniform float _ZeroCrossing <
     ui_min = 0.01f; ui_max = 2.0f;
     ui_category_closed = true;
-    ui_category = "Anisotropic Settings";
+    ui_category = "各向异性设置";
     ui_type = "drag";
-    ui_label = "Zero Crossing";
-    ui_tooltip = "How much sectors overlap with each other"; 
+    ui_label = "过零";
+    ui_tooltip = "区域彼此交叠的程度。"; 
 > = 0.58f;
 
 uniform bool _DepthAware <
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
-    ui_label = "Depth Aware";
-    ui_tooltip = "If enabled, change kuwahara filter radius based on depth.";
+    ui_label = "深度敏感";
+    ui_tooltip = "启用后，桑原滤波半径会根据深度变化。";
 > = false;
 
 uniform bool _SampleSky <
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
-    ui_label = "Sample Sky";
-    ui_tooltip = "Apply kuwahara filter to skybox or not (disable to preserve stars).";
+    ui_label = "采样天空";
+    ui_tooltip = "是否将桑原滤波应用于天空盒。禁用以保留星空。";
 > = true;
 
 uniform uint _MinKernelSize <
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
     ui_min = 2; ui_max = 30;
-    ui_label = "Min. Kernel Size";
+    ui_label = "最小核尺寸";
     ui_type = "slider";
-    ui_tooltip = "Kernel size for objects close to camera (if using depth filtering).";
+    ui_tooltip = "应用到贴近相机物体的滤波核尺寸（当启用深度滤波后）。";
 > = 2;
 
 uniform float _DepthCurve <
     ui_min = 0.0f; ui_max = 5.0f;
-    ui_category = "Depth Settings";
+    ui_category = "深度设置";
     ui_category_closed = true;
-    ui_label = "Depth Curve";
+    ui_label = "深度曲线";
     ui_type = "drag";
-    ui_tooltip = "Change rate at which kernel sizes change between depths.";
+    ui_tooltip = "调节滤波核尺寸随深度变化的速率。";
 > = 1.0f;
 
 #ifndef AFX_SECTORS
@@ -462,7 +462,7 @@ technique AFX_SetupKuwahara < hidden = true; enabled = true; timeout = 1; > {
     }
 }
 
-technique AFX_KuwaharaFilter < ui_label = "Kuwahara Filter"; ui_tooltip = "(LDR)(VERY HIGH PERFORMANCE COST) Applies a Kuwahara filter to the screen."; > {
+technique AFX_KuwaharaFilter < ui_label = "AcerolaFX::桑原滤波[AFX::KuwaharaFilter]"; ui_tooltip = "(LDR)(高性能开销) 对图像进行桑原[Kuwahara]滤波，产生类似油画的质感。"; > {
     pass {
         ComputeShader = CS_StructureTensor<8, 8>;
         DispatchSizeX = (BUFFER_WIDTH + 7) / 8;

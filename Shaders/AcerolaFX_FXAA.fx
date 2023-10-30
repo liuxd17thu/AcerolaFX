@@ -9,19 +9,19 @@ static const float edgeSteps[AFX_EDGE_STEP_COUNT] = { AFX_EDGE_STEPS };
 
 uniform float _ContrastThreshold <
     ui_min = 0.0312f; ui_max = 0.0833f;
-    ui_label = "Contrast Threshold";
+    ui_label = "对比度阈值";
     ui_type = "drag";
 > = 0.0312f;
 
 uniform float _RelativeThreshold <
     ui_min = 0.063f; ui_max = 0.333f;
-    ui_label = "Relative Threshold";
+    ui_label = "相对阈值";
     ui_type = "drag";
 > = 0.063f;
 
 uniform float _SubpixelBlending <
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Subpixel Blending";
+    ui_label = "次像素混合";
     ui_type = "drag";
 > = 1.0f;
 
@@ -166,7 +166,7 @@ float4 PS_FXAA(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET 
     return tex2D(Common::AcerolaBufferLinear, newUV);
 }
 
-technique AFX_FXAA < ui_label = "FXAA"; > {
+technique AFX_FXAA < ui_label = "AcerolaFX::FXAA抗锯齿[AFX_FXAA]"; > {
     pass {
         RenderTarget = AFX_FXAALuminanceTex;
 

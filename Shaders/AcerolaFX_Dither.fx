@@ -28,77 +28,77 @@
 
 uniform uint _NoiseMode <
     ui_type = "combo";
-    ui_label = "Noise Mode";
-    ui_tooltip = "What noise to offset with";
-    ui_items = "Bayer\0"
-               "Blue\0";
+    ui_label = "噪声模式";
+    ui_tooltip = "用作偏移的噪声。";
+    ui_items = "拜耳[Bayer]\0"
+               "蓝噪声[Blue]\0";
 > = 0;
 
 uniform int _BayerLevel <
     ui_min = 0; ui_max = 2;
-    ui_label = "Bayer Level";
+    ui_label = "拜耳水平";
     ui_type = "slider";
-    ui_tooltip = "Choose which bayer level to dither with.";
+    ui_tooltip = "选择抖动的拜耳水平。";
 > = 1;
 
 uniform int _BlueNoiseTexture <
     ui_min = 0; ui_max = 7;
-    ui_label = "Blue Noise Texture";
+    ui_label = "蓝噪声纹理";
     ui_type = "slider";
-    ui_tooltip = "Adjusts allowed number of red colors.";
+    ui_tooltip = "调节允许的红色数量。";
 > = 0;
 
 uniform bool _AnimateNoise <
     ui_spacing = 5.0f;
-    ui_label = "Animate Noise";
-    ui_tooltip = "Pick random texture every frame.";
+    ui_label = "噪声动画";
+    ui_tooltip = "每帧选择随机纹理。";
 > = false;
 uniform float timer < source = "timer"; >;
 
 uniform float _AnimationSpeed <
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Animation Speed";
+    ui_label = "动画速度";
     ui_type = "drag";
-    ui_tooltip = "Control how fast the animation is.";
+    ui_tooltip = "控制动画的速度。";
 > = 1.0f;
 
 uniform float _Spread <
     ui_spacing = 5.0f;
     ui_min = 0.0f; ui_max = 1.0f;
-    ui_label = "Spread";
+    ui_label = "扩散";
     ui_type = "drag";
-    ui_tooltip = "Controls how much the dither noise spreads the color value across the reduced color palette.";
+    ui_tooltip = "控制抖动噪声在缩减的调色板上扩散颜色值的程度。";
 > = 0.5f;
 
 uniform uint _ColorSpace <
     ui_type = "combo";
-    ui_label = "Color Space";
-    ui_tooltip = "What space to quantize in";
+    ui_label = "色彩空间";
+    ui_tooltip = "在何种色彩空间进行量化？";
     ui_items = "RGB\0"
                "HSL\0";
 > = 0;
 
 uniform int _RedColorCount <
     ui_min = 2; ui_max = 16;
-    ui_label = "Channel One Count";
+    ui_label = "红色通道级数";
     ui_type = "slider";
 > = 2;
 
 uniform int _GreenColorCount <
     ui_min = 2; ui_max = 16;
-    ui_label = "Channel Two Count";
+    ui_label = "绿色通道级数";
     ui_type = "slider";
 > = 2;
 
 uniform int _BlueColorCount <
     ui_min = 2; ui_max = 16;
-    ui_label = "Channel Three Count";
+    ui_label = "蓝色通道级数";
     ui_type = "slider";
 > = 2;
 
 uniform bool _MaskUI <
-    ui_label = "Mask UI";
-    ui_tooltip = "Mask UI from dithering.";
+    ui_label = "遮蔽UI";
+    ui_tooltip = "抖动不应用于UI。";
 > = true;
 
 static const int bayer2[2 * 2] = {
@@ -251,7 +251,7 @@ float4 PS_Dither(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGE
    return float4(lerp(saturate(output.rgb), UI.rgb, UI.a * _MaskUI), UI.a);
 }
 
-technique AFX_Dither  <ui_label = "Dither"; ui_tooltip = "(LDR) Reduces the color palette of the image with ordered dithering."; >  {
+technique AFX_Dither  <ui_label = "AcerolaFX::抖动[AFX_Dither]"; ui_tooltip = "(LDR) 利用有序抖动缩减图像的色板。"; >  {
     pass {
         RenderTarget = AFX_DitherDownscaleTex;
 

@@ -3,7 +3,7 @@
 #include "Includes/AcerolaFX_Downscales.fxh"
 
 uniform bool _Point <
-    ui_label = "Point Filter";
+    ui_label = "点过滤";
 > = false;
 
 #ifndef AFX_DOWNSCALE_FACTOR
@@ -40,7 +40,7 @@ float4 PS_EndPass(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARG
     return tex2D(Downscale, uv);
 }
 
-technique AFX_Downscaler < ui_label = "Downscaler"; ui_tooltip = "(HDR) Downscale the render."; > {
+technique AFX_Downscaler < ui_label = "AcerolaFX::降采样[AFX_Downscaler]"; ui_tooltip = "(HDR) 对图像降采样。"; > {
     pass {
         RenderTarget = AFX_DownscaleTex;
 

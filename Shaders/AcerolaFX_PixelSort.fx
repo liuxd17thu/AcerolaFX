@@ -15,90 +15,90 @@
 
 uniform float _LowThreshold <
     ui_category_closed = true;
-    ui_category = "Mask Settings";
+    ui_category = "遮罩设置";
     ui_min = 0.0f; ui_max = 0.5f;
-    ui_label = "Low Threshold";
+    ui_label = "低阈值";
     ui_type = "slider";
-    ui_tooltip = "Adjust the threshold at which dark pixels are omitted from the mask.";
+    ui_tooltip = "调节从遮罩中忽略暗像素的阈值。";
 > = 0.4f;
 
 uniform float _HighThreshold <
     ui_category_closed = true;
-    ui_category = "Mask Settings";
+    ui_category = "遮罩设置";
     ui_min = 0.5f; ui_max = 1.0f;
-    ui_label = "High Threshold";
+    ui_label = "高阈值";
     ui_type = "slider";
-    ui_tooltip = "Adjust the threshold at which bright pixels are omitted from the mask.";
+    ui_tooltip = "调节从遮罩中忽略亮像素的阈值。";
 > = 0.72f;
 
 uniform bool _InvertMask <
     ui_category_closed = true;
-    ui_category = "Mask Settings";
-    ui_label = "Invert Mask";
-    ui_tooltip = "Invert sorting mask.";
+    ui_category = "遮罩设置";
+    ui_label = "反转遮罩";
+    ui_tooltip = "反转排序遮罩。";
 > = false;
 
 uniform float _MaskRandomOffset <
     ui_category_closed = true;
-    ui_category = "Mask Settings";
+    ui_category = "遮罩设置";
     ui_min = -0.01f; ui_max = 0.01f;
-    ui_label = "Random Offset";
+    ui_label = "随机偏移";
     ui_type = "drag";
-    ui_tooltip = "Adjust the random offset of each segment to reduce uniformity.";
+    ui_tooltip = "调节每一部分的随机偏移，以降低均一性。";
 > = 0.0f;
 
 uniform float _AnimationSpeed <
     ui_category_closed = true;
-    ui_category = "Mask Settings";
+    ui_category = "遮罩设置";
     ui_min = 0f; ui_max = 30f;
-    ui_label = "Offset Animation Speed";
+    ui_label = "偏移动画速度";
     ui_type = "slider";
-    ui_tooltip = "Animate the random offset.";
+    ui_tooltip = "随机偏移的动画效果。";
 > = 0.0f;
 
 uniform int _SpanLimit <
     ui_category_closed = true;
-    ui_category = "Span Settings";
+    ui_category = "跨度设置";
     ui_min = 0; 
     ui_max = 256;
-    ui_label = "Length Limit";
+    ui_label = "长度限制";
     ui_type = "slider";
-    ui_tooltip = "Adjust the max length of sorted spans. This will heavily impact performance.";
+    ui_tooltip = "调节跨度排序的最大长度。非常影响性能。";
 > = 64;
 
 uniform int _MaxRandomOffset <
     ui_category_closed = true;
-    ui_category = "Span Settings";
+    ui_category = "跨度设置";
     ui_min = 1; ui_max = 64;
-    ui_label = "Random Offset";
+    ui_label = "随机偏移";
     ui_type = "slider";
-    ui_tooltip = "Adjust the random length offset of limited spans to reduce uniformity.";
+    ui_tooltip = "调节跨度限制的随机长度偏移，以降低均一性。";
 > = 1;
 
 uniform int _SortBy <
-    ui_category = "Sort Settings";
+    ui_category = "排序设置";
     ui_category_closed = true;
     ui_type = "combo";
-    ui_label = "Sort By";
-    ui_tooltip = "What color information to sort by.";
-    ui_items = "Luminance\0"
-               "Saturation\0"
-               "Hue\0";
+    ui_label = "排序";
+    ui_tooltip = "对哪种色彩信息排序？";
+    ui_items = "亮度[Luminance]\0"
+               "饱和度\0"
+               "色相\0";
 > = 0;
 
 uniform bool _ReverseSorting <
     ui_category_closed = true;
-    ui_category = "Sort Settings";
-    ui_label = "Reverse Sorting";
+    ui_category = "排序设置";
+    ui_label = "反向排序";
 > = false;
 
 uniform float _SortedGamma <
     ui_category_closed = true;
-    ui_category = "Sort Settings";
+    ui_category = "排序设置";
     ui_min = 0.1f; ui_max = 5.0f;
-    ui_label = "Gamma";
+    ui_label = "伽马";
     ui_type = "drag";
-    ui_tooltip = "Adjust gamma of sorted pixels to accentuate them.";
+    ui_tooltip = "调整排序像素的伽马值以突出它们。";
 > = 1.0f;
 
 uniform float _FrameTime < source = "frametime"; >;
@@ -318,7 +318,7 @@ void CS_Composite(uint3 id : SV_DISPATCHTHREADID) {
     }
 }
 
-technique AFX_PixelSort < ui_label = "Pixel Sort"; ui_tooltip = "(EXTREMELY HIGH PERFORMANCE COST) Sort the game pixels."; > {
+technique AFX_PixelSort < ui_label = "AcerolaFX::像素排序[AFX_PixelSort]"; ui_tooltip = "(性能开销极高) 对画面像素进行排序。"; > {
     pass {
         ComputeShader = CS_CreateMask<8, 8>;
         DispatchSizeX = BUFFER_WIDTH / 8;

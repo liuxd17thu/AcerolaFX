@@ -8,8 +8,8 @@
 #if AFX_PALETTE_COUNT > 0
 uniform float3 _Color1 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 1";
+    ui_category = "手动着色";
+    ui_label = "颜色1";
     ui_type = "color";
 > = float3(0.0, 0.0, 0.0);
 #endif
@@ -17,8 +17,8 @@ uniform float3 _Color1 <
 #if AFX_PALETTE_COUNT > 1
 uniform float3 _Color2 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 2";
+    ui_category = "手动着色";
+    ui_label = "颜色2";
     ui_type = "color";
 > = float3(0.1, 0.1, 0.1);
 #endif
@@ -26,8 +26,8 @@ uniform float3 _Color2 <
 #if AFX_PALETTE_COUNT > 2
 uniform float3 _Color3 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 3";
+    ui_category = "手动着色";
+    ui_label = "颜色3";
     ui_type = "color";
 > = float3(0.2, 0.2, 0.2);
 #endif
@@ -35,8 +35,8 @@ uniform float3 _Color3 <
 #if AFX_PALETTE_COUNT > 3
 uniform float3 _Color4 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 4";
+    ui_category = "手动着色";
+    ui_label = "颜色4";
     ui_type = "color";
 > = float3(0.3, 0.3, 0.3);
 #endif
@@ -44,8 +44,8 @@ uniform float3 _Color4 <
 #if AFX_PALETTE_COUNT > 4
 uniform float3 _Color5 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 5";
+    ui_category = "手动着色";
+    ui_label = "颜色5";
     ui_type = "color";
 > = float3(0.4, 0.4, 0.4);
 #endif
@@ -53,8 +53,8 @@ uniform float3 _Color5 <
 #if AFX_PALETTE_COUNT > 5
 uniform float3 _Color6 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 6";
+    ui_category = "手动着色";
+    ui_label = "颜色6";
     ui_type = "color";
 > = float3(0.6, 0.6, 0.6);
 #endif
@@ -62,8 +62,8 @@ uniform float3 _Color6 <
 #if AFX_PALETTE_COUNT > 6
 uniform float3 _Color7 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 7";
+    ui_category = "手动着色";
+    ui_label = "颜色7";
     ui_type = "color";
 > = float3(0.8, 0.8, 0.8);
 #endif
@@ -71,83 +71,83 @@ uniform float3 _Color7 <
 #if AFX_PALETTE_COUNT > 7
 uniform float3 _Color8 <
     ui_category_closed = true;
-    ui_category = "Manual Colors";
-    ui_label = "Color 8";
+    ui_category = "手动着色";
+    ui_label = "颜色8";
     ui_type = "color";
 > = float3(1.0, 1.0, 1.0);
 #endif
 
 uniform bool _UseRandomPalette <
-    ui_label = "Generate Random Palette";
+    ui_label = "生成随机色板";
 > = false;
 
 uniform int _ColorCount <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
+    ui_category = "随机色板设置";
     ui_min = 3; ui_max = 16;
-    ui_label = "Color Count";
+    ui_label = "颜色数量";
     ui_type = "slider";
 > = 4;
 
 uniform int _Seed <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
+    ui_category = "随机色板设置";
     ui_min = 0; ui_max = 1000000000;
-    ui_label = "Seed";
+    ui_label = "随机数种子";
     ui_type = "slider";
 > = 0;
 
 uniform uint _HueMode <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
+    ui_category = "随机色板设置";
     ui_type = "combo";
-    ui_label = "Hue Mode";
-    ui_tooltip = "How much of the color wheel to use.";
-    ui_items = "Monochromatic\0"
-               "Analogous\0"
-               "Complementary\0"
-               "Triadic Complementary\0"
-               "Tetradic Complementary\0";
+    ui_label = "色相模式";
+    ui_tooltip = "要使用色环的哪些部分。";
+    ui_items = "单色\0"
+               "类比\0"
+               "补色\0"
+               "三元互补色\0"
+               "四元互补色\0";
 > = 0;
 
 uniform float2 _HueContrast <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
-    ui_label = "Hue Contrast";
-    ui_tooltip = "Minimum/maximum for how much the hue increases across the palette.";
+    ui_category = "随机色板设置";
+    ui_label = "色相对比度";
+    ui_tooltip = "调色板中色相增加的最小/最大值。";
     ui_type = "drag";
 > = float2(0.0f, 1.0f);
 
 uniform float2 _Luminance <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
-    ui_label = "Luminance";
-    ui_tooltip = "Minimum/maximum for initial luminance value.";
+    ui_category = "随机色板设置";
+    ui_label = "亮度";
+    ui_tooltip = "初始亮度值的最小值/最大值。";
     ui_type = "drag";
 > = float2(0.0f, 1.0f);
 
 uniform float2 _LuminanceContrast <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
-    ui_label = "Luminance Contrast";
-    ui_tooltip = "Minimum/maximum for how much the luminance increases across the palette.";
+    ui_category = "随机色板设置";
+    ui_label = "亮度对比度";
+    ui_tooltip = "调色板中亮度增加的最小/最大值。";
     ui_type = "drag";
 > = float2(0.0f, 1.0f);
 
 uniform float2 _Chroma <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
-    ui_label = "Chroma";
-    ui_tooltip = "Minimum/maximum for initial chroma value.";
+    ui_category = "随机色板设置";
+    ui_label = "色度";
+    ui_tooltip = "初始色度值的最小值/最大值。";
     ui_type = "drag";
 > = float2(0.0f, 1.0f);
 
 
 uniform float2 _ChromaContrast <
     ui_category_closed = true;
-    ui_category = "Random Palette Settings";
-    ui_label = "Chroma Contrast";
-    ui_tooltip = "Minimum/maximum for how much the chroma increases across the palette.";
+    ui_category = "随机色板设置";
+    ui_label = "色度对比度";
+    ui_tooltip = "调色板中色度增加的最小/最大值。";
     ui_type = "drag";
 > = float2(0.0f, 1.0f);
 
@@ -294,7 +294,7 @@ float4 PS_PaletteSwap(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_
     return float4(saturate(color), 1.0f);
 }
 
-technique AFX_PaletteSwap < ui_label = "Palette Swap"; ui_tooltip = "Swap grayscale colors with other colors."; > {
+technique AFX_PaletteSwap < ui_label = "AcerolaFX::色板替换[AFX_PaletteSwap]"; ui_tooltip = "将灰阶颜色替换为其他颜色。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 
