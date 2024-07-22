@@ -127,7 +127,7 @@ float4 PS_FilmGrain(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TA
     return float4(c.rgb + c.rgb * noise * _Intensity * weight, 1.0f);
 }
 
-technique AFX_FilmGrain < ui_label = "AcerolaFX::胶片颗粒[AFX_FilmGrain]"; ui_tooltip = "(HDR/LDR) 对图像应用胶片颗粒。"; > {
+technique AFX_FilmGrain < ui_label_zh = "AcerolaFX::胶片颗粒"; ui_tooltip = "(HDR/LDR) 对图像应用胶片颗粒。"; > {
     pass {
         ComputeShader = CS_GenerateNoise<8, 8>;
         DispatchSizeX = (AFX_NOISETEX_WIDTH + 7) / 8;

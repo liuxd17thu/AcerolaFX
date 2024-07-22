@@ -239,7 +239,7 @@ float4 PS_ColorSpaceAdjust(float4 position : SV_POSITION, float2 uv : TEXCOORD) 
     return float4(saturate(rgb), 1.0f);
 }
 
-technique AFX_ColorSpaceAdjust < ui_label = "AcerolaFX::色彩空间调节[AFX_ColorSpaceAdjust]"; ui_tooltip = "(LDR) 使用多种色彩空间对图像进行特定调节。"; > {
+technique AFX_ColorSpaceAdjust < ui_label_zh = "AcerolaFX::色彩空间调节"; ui_tooltip = "(LDR) 使用多种色彩空间对图像进行特定调节。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

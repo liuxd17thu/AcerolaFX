@@ -70,7 +70,7 @@ float4 PS_DistanceFog(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_
     return float4(fogOutput, col.a);
 }
 
-technique AFX_Fog <ui_label = "AcerolaFX::雾气[AFX_Fog]"; ui_tooltip = "(LDR) 对远处像素应用颜色以夸大距离感。"; >  {
+technique AFX_Fog <ui_label_zh = "AcerolaFX::雾气"; ui_tooltip = "(LDR) 对远处像素应用颜色以夸大距离感。"; >  {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

@@ -773,7 +773,7 @@ float4 PS_ColorBlend(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_T
     return saturate(lerp(col, output, _BlendStrength));
 }
 
-technique AFX_DifferenceOfGaussians < ui_label = "AcerolaFX::高斯差[AFX_DifferenceOfGaussians]"; > {
+technique AFX_DifferenceOfGaussians < ui_label_zh = "AcerolaFX::高斯差"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

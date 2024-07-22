@@ -462,7 +462,7 @@ technique AFX_SetupKuwahara < hidden = true; enabled = true; timeout = 1; > {
     }
 }
 
-technique AFX_KuwaharaFilter < ui_label = "AcerolaFX::桑原滤波[AFX::KuwaharaFilter]"; ui_tooltip = "(LDR)(高性能开销) 对图像进行桑原[Kuwahara]滤波，产生类似油画的质感。"; > {
+technique AFX_KuwaharaFilter < ui_label_zh = "AcerolaFX::桑原滤波"; ui_tooltip = "(LDR)(高性能开销) 对图像进行桑原[Kuwahara]滤波，产生类似油画的质感。"; > {
     pass {
         ComputeShader = CS_StructureTensor<8, 8>;
         DispatchSizeX = (BUFFER_WIDTH + 7) / 8;

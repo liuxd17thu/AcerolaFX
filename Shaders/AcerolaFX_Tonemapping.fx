@@ -170,7 +170,7 @@ float4 PS_Tonemap(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARG
     return float4(output, col.a);
 }
 
-technique AFX_Tonemapping <ui_label = "AcerolaFX::色调映射[AFX_Tonemapping]"; ui_tooltip = "(HDR -> LDR) 将先前的所有HDR处理过程转换至LDR。"; > {
+technique AFX_Tonemapping <ui_label_zh = "AcerolaFX::色调映射"; ui_tooltip = "(HDR -> LDR) 将先前的所有HDR处理过程转换至LDR。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

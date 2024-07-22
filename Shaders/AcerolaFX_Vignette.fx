@@ -59,7 +59,7 @@ float4 PS_Vignette(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TAR
     return float4(lerp(_VignetteColor, col.rgb, vfactor), 1.0f);
 }
 
-technique AFX_Vignette < ui_label = "AcerolaFX::暗角[AFX_Vignette]"; ui_tooltip = "对图像应用类似电影的渐变暗角效果。"; > {
+technique AFX_Vignette < ui_label_zh = "AcerolaFX::暗角"; ui_tooltip = "对图像应用类似电影的渐变暗角效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

@@ -88,7 +88,7 @@ float4 PS_ChromaKey(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TA
     return col;
 }
 
-technique AFX_ChromaKey < ui_label = "AcerolaFX::色键抠像[AFX_Chromakey]"; ui_tooltip = "将指定颜色替换为其他内容。\n译注：这个不是绿幕，而是用来处理已经绿幕抠过的图像。"; > {
+technique AFX_ChromaKey < ui_label_zh = "AcerolaFX::色键抠像"; ui_tooltip = "将指定颜色替换为其他内容。\n译注：这个不是绿幕，而是用来处理已经绿幕抠过的图像。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

@@ -154,7 +154,7 @@ float4 PS_EdgeDetect(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_T
     return float4(lerp(col.rgb, lerp(col.rgb, _EdgeColor.rgb, saturate(output)), _Alpha), 1.0f);
 }
 
-technique AFX_EdgeDetect < ui_label = "AcerolaFX::边缘探测[AFX_EdgeDetect]"; ui_tooltip = "(LDR) 尝试探测图像中的边缘。"; > {
+technique AFX_EdgeDetect < ui_label_zh = "AcerolaFX::边缘探测"; ui_tooltip = "(LDR) 尝试探测图像中的边缘。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

@@ -70,7 +70,7 @@ float4 PS_ChromaticAberration(float4 position : SV_POSITION, float2 uv : TEXCOOR
     return col;
 }
 
-technique AFX_ChromaticAberration < ui_label = "AcerolaFX::色差[AFX_ChromaticAberration]"; ui_tooltip = "移动色彩通道，模拟色差效果。"; > {
+technique AFX_ChromaticAberration < ui_label_zh = "AcerolaFX::色差"; ui_tooltip = "移动色彩通道，模拟色差效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

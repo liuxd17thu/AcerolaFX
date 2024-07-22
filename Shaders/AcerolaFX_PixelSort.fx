@@ -318,7 +318,7 @@ void CS_Composite(uint3 id : SV_DISPATCHTHREADID) {
     }
 }
 
-technique AFX_PixelSort < ui_label = "AcerolaFX::像素排序[AFX_PixelSort]"; ui_tooltip = "(性能开销极高) 对画面像素进行排序。"; > {
+technique AFX_PixelSort < ui_label_zh = "AcerolaFX::像素排序"; ui_tooltip = "(性能开销极高) 对画面像素进行排序。"; > {
     pass {
         ComputeShader = CS_CreateMask<8, 8>;
         DispatchSizeX = BUFFER_WIDTH / 8;

@@ -175,7 +175,7 @@ float4 AFX_SHADER_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV
     return float4(output, col.a); \
 } \
 \
-technique AFX_TECHNIQUE_NAME <ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "(LDR) 使用Photoshop的混合模式，将纯色或渲染画面与自身混合。"; > { \
+technique AFX_TECHNIQUE_NAME <ui_label_zh = AFX_TECHNIQUE_LABEL; ui_tooltip = "(LDR) 使用Photoshop的混合模式，将纯色或渲染画面与自身混合。"; > { \
     pass { \
         RenderTarget = AFXTemp1::AFX_RenderTex1; \
 \

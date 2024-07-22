@@ -296,7 +296,7 @@ float4 PS_Blend(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET
     #endif
 }
 
-technique AFX_Bloom  <ui_label = "AcerolaFX::泛光[AFX_Bloom]"; ui_tooltip = "(HDR) 将图像中明亮区域与自身混合，提亮高光。"; >  {
+technique AFX_Bloom  <ui_label_zh = "AcerolaFX::泛光"; ui_tooltip = "(HDR) 将图像中明亮区域与自身混合，提亮高光。"; >  {
     pass Prefilter {
         RenderTarget = DownScale::HalfTex;
         VertexShader = PostProcessVS;

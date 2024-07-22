@@ -17,7 +17,7 @@ float4 PS_Gamma(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET
     return saturate(pow(abs(col), _Gamma));
 }
 
-technique AFX_Gamma < ui_label = "AcerolaFX::伽马"; ui_tooltip = "(LDR) 调节图像的伽马校正。"; > {
+technique AFX_Gamma < ui_label_zh = "AcerolaFX::伽马"; ui_tooltip = "(LDR) 调节图像的伽马校正。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

@@ -121,7 +121,7 @@ float4 PS_ColorCorrect(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV
     return float4(output, col.a);
 }
 
-technique AFX_ColorCorrection  <ui_label = "AcerolaFX::色彩修正[AFX_ColorCorrection]"; ui_tooltip = "(HDR/LDR) 一组色彩修正着色器。"; >  {
+technique AFX_ColorCorrection  <ui_label_zh = "AcerolaFX::色彩修正"; ui_tooltip = "(HDR/LDR) 一组色彩修正着色器。"; >  {
     pass ColorCorrect {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

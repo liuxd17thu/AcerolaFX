@@ -11,7 +11,7 @@ float4 PS_End(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET {
     return float4(lerp(tex2D(Common::AcerolaBuffer, uv).rgb, originalCol.rgb, originalCol.a * _MaskUI), originalCol.a);
 }
 
-technique AcerolaFXEnd <ui_label = "========AcerolaFX::结束[ACerolaFXEnd]"; ui_tooltip = "(需求！) 将它置于所有AcerolaFX着色器之后。";> {
+technique AcerolaFXEnd <ui_label_zh = "========AcerolaFX::结束"; ui_tooltip = "(需求！) 将它置于所有AcerolaFX着色器之后。";> {
     pass {
         VertexShader = PostProcessVS;
         PixelShader = PS_End;

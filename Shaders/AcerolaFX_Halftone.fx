@@ -229,7 +229,7 @@ float4 PS_Offset(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGE
     return float4(saturate(output - k * _PrintBlack), 1.0f);
 }
 
-technique AFX_Halftone < ui_label = "AcerolaFX::半色调[AFX_Halftone]"; ui_tooltip = "(LDR) 印刷网点效果。"; > {
+technique AFX_Halftone < ui_label_zh = "AcerolaFX::半色调"; ui_tooltip = "(LDR) 印刷网点效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

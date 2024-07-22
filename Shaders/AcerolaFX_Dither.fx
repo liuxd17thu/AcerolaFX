@@ -251,7 +251,7 @@ float4 PS_Dither(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGE
    return float4(lerp(saturate(output.rgb), UI.rgb, UI.a * _MaskUI), UI.a);
 }
 
-technique AFX_Dither  <ui_label = "AcerolaFX::抖动[AFX_Dither]"; ui_tooltip = "(LDR) 利用有序抖动缩减图像的色板。"; >  {
+technique AFX_Dither  <ui_label_zh = "AcerolaFX::抖动"; ui_tooltip = "(LDR) 利用有序抖动缩减图像的色板。"; >  {
     pass {
         RenderTarget = AFX_DitherDownscaleTex;
 

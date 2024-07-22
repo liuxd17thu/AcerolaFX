@@ -51,7 +51,7 @@ float4 PS_ColorBlindness(float4 position : SV_POSITION, float2 uv : TEXCOORD) : 
     return float4(cb, 1.0f);
 }
 
-technique AFX_ColorBlindness < ui_label = "AcerolaFX::色盲[AFX_ColorBlindness]"; ui_tooltip = "(SDR) 模拟色盲效果。"; > {
+technique AFX_ColorBlindness < ui_label_zh = "AcerolaFX::色盲"; ui_tooltip = "(SDR) 模拟色盲效果。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

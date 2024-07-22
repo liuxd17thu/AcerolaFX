@@ -495,7 +495,7 @@ technique AFX_SetupSSAO < hidden = true; enabled = true; timeout = 1; > {
     }
 }
 
-technique AFX_XeGTAO < ui_label = "AcerolaFX::XeGTAO环境光遮蔽[AFX_XeGTAO]"; ui_tooltip = "(LDR) 使用GTAO算法进行环境光遮蔽，产生更好的光影。\n译注：\nGTAO全称为\"Ground Truth Ambient Occulusion\"(地面真值环境光遮蔽？)。\nXeGTAO是Intel对此算法的实现。"; > {
+technique AFX_XeGTAO < ui_label_zh = "AcerolaFX::XeGTAO环境光遮蔽"; ui_tooltip = "(LDR) 使用GTAO算法进行环境光遮蔽，产生更好的光影。\n译注：\nGTAO全称为\"Ground Truth Ambient Occulusion\"(地面真值环境光遮蔽？)。\nXeGTAO是Intel对此算法的实现。"; > {
 
     pass PrefilterDepths {
         ComputeShader = CS_PrefilterDepths<AFX_NUM_THREADS_X, AFX_NUM_THREADS_Y>;

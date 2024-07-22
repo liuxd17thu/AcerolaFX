@@ -15,7 +15,7 @@ float4 PS_Alpha(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET
     return float4(tex2D(ReShade::BackBuffer, uv).rgb, _Alpha);
 }
 
-technique AFX_Alpha < ui_label = "AcerolaFX::透明度[AFX_Alpha]"; ui_tooltip = "设置后备缓冲区的全局透明度通道，以绕过UI遮蔽。"; > {
+technique AFX_Alpha < ui_label_zh = "AcerolaFX::透明度"; ui_tooltip = "设置后备缓冲区的全局透明度通道，以绕过UI遮蔽。"; > {
     pass {
         VertexShader = PostProcessVS;
         PixelShader = PS_Alpha;

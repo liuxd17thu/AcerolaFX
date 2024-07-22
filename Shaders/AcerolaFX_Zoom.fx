@@ -75,7 +75,7 @@ float4 PS_Zoom(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET 
     }
 }
 
-technique AFX_Zoom < ui_label = "AcerolaFX::缩放[AFX_Zoom]"; ui_tooltip = "(LDR) 调节图像的缩放修正。"; > {
+technique AFX_Zoom < ui_label_zh = "AcerolaFX::缩放"; ui_tooltip = "(LDR) 调节图像的缩放修正。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

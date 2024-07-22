@@ -166,7 +166,7 @@ float4 PS_FXAA(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET 
     return tex2D(Common::AcerolaBufferLinear, newUV);
 }
 
-technique AFX_FXAA < ui_label = "AcerolaFX::FXAA抗锯齿[AFX_FXAA]"; > {
+technique AFX_FXAA < ui_label_zh = "AcerolaFX::FXAA抗锯齿"; > {
     pass {
         RenderTarget = AFX_FXAALuminanceTex;
 

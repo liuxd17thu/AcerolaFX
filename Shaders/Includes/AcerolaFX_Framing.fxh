@@ -111,7 +111,7 @@ float4 AFX_PS_NAME(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TAR
     return float4(lerp(col.xyz, AFX_FRAME_COLOR, AFX_FRAME_ALPHA * shape), 1.0f); \
 } \
 \
-technique AFX_TECHNIQUE_NAME < ui_label = AFX_TECHNIQUE_LABEL; ui_tooltip = "添加一层用于构图的边框。"; > { \
+technique AFX_TECHNIQUE_NAME < ui_label_zh = AFX_TECHNIQUE_LABEL; ui_tooltip = "添加一层用于构图的边框。"; > { \
     pass { \
         RenderTarget = AFXTemp1::AFX_RenderTex1; \
 \

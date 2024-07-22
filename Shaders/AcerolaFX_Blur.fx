@@ -72,7 +72,7 @@ void CS_SecondBlurPass(uint3 tid : SV_DISPATCHTHREADID) {
     tex2Dstore(Common::s_AcerolaBuffer, tid.xy, col / kernelSum);
 }
 
-technique AFX_Blur < ui_label = "AcerolaFX::模糊[AFX_Blur]"; ui_tooltip = "(HDR/LDR) 模糊图像。"; > {
+technique AFX_Blur < ui_label_zh = "AcerolaFX::模糊"; ui_tooltip = "(HDR/LDR) 模糊图像。"; > {
     pass {
         ComputeShader = CS_FirstBlurPass<8, 8>;
         DispatchSizeX = (BUFFER_WIDTH + 7) / 8;

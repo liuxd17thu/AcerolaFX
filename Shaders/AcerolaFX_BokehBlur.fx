@@ -701,7 +701,7 @@ float4 PS_Composite(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TA
     return float4(Tonemap(result.rgb), 1.0f);
 }
 
-technique AFX_BokehBlur < ui_label = "AcerolaFX::散景模糊[AFX_BokehBlur]"; ui_tooltip = "模拟相机对焦"; > {
+technique AFX_BokehBlur < ui_label_zh = "AcerolaFX::散景模糊"; ui_tooltip = "模拟相机对焦"; > {
     pass {
         RenderTarget = AFX_CoC;
 

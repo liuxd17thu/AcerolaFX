@@ -63,7 +63,7 @@ float4 PS_AdaptiveSharpness(float4 position : SV_POSITION, float2 uv : TEXCOORD)
     return float4(output, col.a);
 }
 
-technique AFX_AdaptiveSharpness <ui_label = "AcerolaFX::锐度[AFX_AdaptiveSharpness]"; ui_tooltip = "(LDR) 增加边缘之间的对比度，提供细节更精致的错觉。"; > {
+technique AFX_AdaptiveSharpness <ui_label_zh = "AcerolaFX::锐度"; ui_tooltip = "(LDR) 增加边缘之间的对比度，提供细节更精致的错觉。"; > {
     pass Sharpen {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

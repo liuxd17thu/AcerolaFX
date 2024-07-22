@@ -193,7 +193,7 @@ void CS_AutoExposure(uint3 tid : SV_DISPATCHTHREADID) {
 
 
 
-technique AFX_AutoExposure <ui_label = "AcerolaFX::自动曝光[AFX_AutoExposure]"; ui_tooltip = "(HDR) 基于屏幕图像平均亮度，自动调整曝光。一般恰好置于色调映射前面。"; > {
+technique AFX_AutoExposure <ui_label_zh = "AcerolaFX::自动曝光"; ui_tooltip = "(HDR) 基于屏幕图像平均亮度，自动调整曝光。一般恰好置于色调映射前面。"; > {
     pass {
         ComputeShader = CS_Downscale<8, 8>;
         DispatchSizeX = (BUFFER_WIDTH + 7) / 8;

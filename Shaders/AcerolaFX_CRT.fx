@@ -71,7 +71,7 @@ float4 PS_CRT(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_TARGET {
     return float4(lerp(output.rgb, UI.rgb, UI.a * _MaskUI), col.a);
 }
 
-technique AFX_CRT  <ui_label = "AcerolaFX::显像管[AFX_CRT]"; ui_tooltip = "(LDR) 将画面变为显像管电视风格。"; >  {
+technique AFX_CRT  <ui_label_zh = "AcerolaFX::显像管"; ui_tooltip = "(LDR) 将画面变为显像管电视风格。"; >  {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 

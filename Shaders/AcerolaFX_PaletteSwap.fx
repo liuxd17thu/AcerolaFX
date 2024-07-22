@@ -294,7 +294,7 @@ float4 PS_PaletteSwap(float4 position : SV_POSITION, float2 uv : TEXCOORD) : SV_
     return float4(saturate(color), 1.0f);
 }
 
-technique AFX_PaletteSwap < ui_label = "AcerolaFX::色板替换[AFX_PaletteSwap]"; ui_tooltip = "将灰阶颜色替换为其他颜色。"; > {
+technique AFX_PaletteSwap < ui_label_zh = "AcerolaFX::色板替换"; ui_tooltip = "将灰阶颜色替换为其他颜色。"; > {
     pass {
         RenderTarget = AFXTemp1::AFX_RenderTex1;
 
